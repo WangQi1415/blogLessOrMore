@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "How to use WebSocket"
+title:  "WebSocket使用教程"
 date:   2018-07-09 13:31:01 +0800
-categories: WebSocket
-tag: 教程
+categories: 教程
+tag: WebSocket
 ---
 
 * content

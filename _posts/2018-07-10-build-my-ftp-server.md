@@ -2,7 +2,7 @@
 layout: post
 title:  "简单的搭建一个FTP服务器"
 date:   2018-07-10 14:37:01 +0800
-categories: practice
+categories: 教程
 tag: ftp
 ---
 
@@ -48,8 +48,10 @@ sudo passwd ftpuser</code></pre>
 3. 使用flashFXP进行文件的提交
 
 #### 2. 使用dos命令进行提交
-<pre><code>C:\Users\wq>ftp ~~10.xx.xx.xx
-连接到 1x.xx.xx.xx
+在c:\Windows\System32\drivers\etc下的hosts文件添加IP地址的配置
+xx.xx.xx.xx nwpu
+<pre><code>C:\Users\wq>ftp nwpu
+连接到 nwpu
 220 (vsFTPd 3.0.3)
 用户(10.13.34.11:(none)): xx
 331 Please specify the password.
