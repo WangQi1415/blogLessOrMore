@@ -5,9 +5,161 @@
     <description>Actually, less is more!</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 10 Jul 2018 15:00:06 +0800</pubDate>
-    <lastBuildDate>Tue, 10 Jul 2018 15:00:06 +0800</lastBuildDate>
+    <pubDate>Thu, 26 Jul 2018 21:19:37 +0800</pubDate>
+    <lastBuildDate>Thu, 26 Jul 2018 21:19:37 +0800</lastBuildDate>
     <generator>Jekyll v3.8.3</generator>
+    
+      <item>
+        <title>初识Web Service</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#1何为-web-service&quot; id=&quot;markdown-toc-1何为-web-service&quot;&gt;1、何为 Web Service?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#2webservice的组件&quot; id=&quot;markdown-toc-2webservice的组件&quot;&gt;2、WebService的组件&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#3应用实例&quot; id=&quot;markdown-toc-3应用实例&quot;&gt;3、应用实例&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#4为什么使用webservice&quot; id=&quot;markdown-toc-4为什么使用webservice&quot;&gt;4、为什么使用WebService&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#5快速开始&quot; id=&quot;markdown-toc-5快速开始&quot;&gt;5、快速开始&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;1何为-web-service&quot;&gt;1、何为 Web Service?&lt;/h4&gt;
+&lt;p&gt;（1）它使得本地应用软件所提供的服务可以通过网络在远程得到使用，它们之间的消息传递是通过XML文件进行的。因此，Web Service不受操作系统和编程语言的限制，例如Ubuntu可以与Windows进行通信，Java可以与Python 进行通信。
+（2）Web Service 基于像TCP/IP、HTTP、Java、HTML和XML等这些开放标准构建的，因此可以构建本地的、分布式的或者基于web的应用。&lt;/p&gt;
+&lt;h4 id=&quot;2webservice的组件&quot;&gt;2、WebService的组件&lt;/h4&gt;
+&lt;p&gt;Web Service 的基础是XML+HTTP,W所有的Web Service 都会用到以下组件:&lt;br /&gt;
+（1）SOAP(Simple Object Access Protocol)&lt;a href=&quot;http://www.w3.org/TR/2003/REC-soap12-part0-20030624/&quot;&gt;SOAP1.2&lt;/a&gt;&lt;br /&gt;
+简单对象访问协议，用来描述传递信息的格式，它是基于XML的协议。主要有以下优点：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;它是一种通信协议，可以在应用之间进行通信&lt;/li&gt;
+  &lt;li&gt;平台独立性&lt;/li&gt;
+  &lt;li&gt;语言独立性&lt;/li&gt;
+  &lt;li&gt;简单和可扩展性&lt;/li&gt;
+  &lt;li&gt;允许通过防火墙&lt;/li&gt;
+  &lt;li&gt;遵循W3C标准&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;（2）UDDI(Universal Description,Discovery and Integration）&lt;br /&gt;
+用来管理，分发，查询 WebService&lt;br /&gt;
+（3）WSDL（Web Services Description Languange）&lt;a href=&quot;https://www.w3.org/TR/2007/REC-wsdl20-primer-20070626/&quot;&gt;WSDL&lt;/a&gt;&lt;br /&gt;
+用来描述如何访问具体的接口&lt;/p&gt;
+
+&lt;h4 id=&quot;3应用实例&quot;&gt;3、应用实例&lt;/h4&gt;
+
+&lt;p&gt;一个简单的账户管理和订单处理系统，会计人员用客户端（JSP或者其它）来创建新的账户，并且键入新的客户订单&lt;br /&gt;
+订单处理系统使用Java实现在其它电脑上并且与数据库进行交互&lt;br /&gt;
+我们采用以下步骤进行构建：&lt;br /&gt;
+1、客户端程序将账户注册信息捆绑到SOAP消息中&lt;br /&gt;
+2、将SOAP消息作为HTTP POST请求的消息体发送到 WebService端&lt;br /&gt;
+3、WebService端解包SOAP请求 并且将其转换为应用可以理解的命令&lt;br /&gt;
+4、WebService端处理请求 并且将响应信息放入另一个SOAP中响应给用户&lt;br /&gt;
+5、用户得到相应的数据，并且解包呈现出来&lt;/p&gt;
+&lt;h4 id=&quot;4为什么使用webservice&quot;&gt;4、为什么使用WebService&lt;/h4&gt;
+&lt;p&gt;1、可以暴露已有的方法到网络上&lt;br /&gt;
+2、互通性，允许多个应用相互之间进行通信，不限于系统和语言&lt;br /&gt;
+3、采用标准化协议&lt;br /&gt;
+4、相互通讯消耗低&lt;br /&gt;
+5、基于XML，使得跨系统，跨语言通信不受限制&lt;br /&gt;
+6、低耦合&lt;br /&gt;
+7、粗粒度&lt;br /&gt;
+8、能够同步或异步&lt;br /&gt;
+9、支持远程过程调用&lt;br /&gt;
+10、支持文档交换，表现在 XML不仅可以存放数据，也可以存放长文本&lt;/p&gt;
+
+&lt;h4 id=&quot;5快速开始&quot;&gt;5、快速开始&lt;/h4&gt;
+
+&lt;p&gt;(1) 环境配置&lt;br /&gt;
+Eclipse+Tomcat+Axis2(&lt;a href=&quot;http://axis.apache.org/axis2/java/core/download.cgi&quot;&gt;axis2&lt;/a&gt; )&lt;br /&gt;
+Axis2选择 Binary Distribution&lt;br /&gt;
+Eclips中Axis2配置 &lt;br /&gt;
+windows-&amp;gt;prefrence-&amp;gt;Axis2 Preferences-&amp;gt;Browse(D:/axis2-1.7.8 自己解压的位置)-&amp;gt;Apply&lt;br /&gt;
+（2） 创建项目&lt;br /&gt;
+    a. 创建java项目， Javaproject 或者 Dynamic项目均可。&lt;br /&gt;
+    b. 右键项目 new Web Service，配置Tomcat，Axis等，如图：&lt;br /&gt;
+    &lt;img src=&quot;/styles/images/2018-7-26/2018-07-26_113237.jpg&quot; alt=&quot;deploy&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;（3）  服务器端实现&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nwpu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;service&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;javax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jws&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WebMethod&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;javax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jws&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WebService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WebService&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Caculate&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WebMethod&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WebMethod&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;curt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;	
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+
+&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nwpu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;service&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;javax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jws&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WebService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WebService&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CaculateImpl&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Caculate&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;curt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)?&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;（4）  服务端点注册&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nwpu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;javax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xml&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ws&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Endpoint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nwpu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;service&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Caculate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nwpu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;service&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CaculateImpl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Server&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	 &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;Caculate&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ca&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CaculateImpl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;address&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;http://1X.2X.1XX.1XX:8080/Caculate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;Endpoint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;publish&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;address&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ca&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;（5） 客户端生成&lt;br /&gt;
+新建项目-&amp;gt;右键SRc-&amp;gt;Show in Terminal&lt;br /&gt;
+然后在终端输入 wsimport -keep http://1X.2X.1XX.1XX:8080/Caculate?wsdl&lt;br /&gt;
+刷新项目 即可看见自动生成的包&lt;br /&gt;
+如图:&lt;br /&gt;
+  &lt;img src=&quot;/styles/images/2018-7-26/1.jpg&quot; alt=&quot;deploy&quot; width=&quot;300&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;在Test.java中实现主函数进行测试&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nwpu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;service&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Test&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
+	&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;CaculateImplService&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CaculateImplService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;CaculateImpl&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ci&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getCaculateImplPort&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+		&lt;span class=&quot;nf&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ci&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+		&lt;span class=&quot;nf&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ci&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;curt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;参考文献&lt;br /&gt;
+ &lt;a href=&quot;https://www.tutorialspoint.com/webservices/web_services_summary.htm&quot;&gt;https://www.tutorialspoint.com/webservices/web_services_summary.htm&lt;/a&gt; 
+&lt;a href=&quot;https://blog.csdn.net/xw13106209/article/details/7049614&quot;&gt; https://blog.csdn.net/xw13106209/article/details/7049614&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 26 Jul 2018 14:37:01 +0800</pubDate>
+        <link>http://localhost:4000/2018/07/26/start-webservice/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/07/26/start-webservice/</guid>
+        
+        <category>Web Service</category>
+        
+        
+        <category>教程</category>
+        
+      </item>
     
       <item>
         <title>简单的搭建一个FTP服务器</title>
@@ -55,8 +207,10 @@ sudo passwd ftpuser&lt;/code&gt;&lt;/pre&gt;
 &lt;/ol&gt;
 
 &lt;h4 id=&quot;2-使用dos命令进行提交&quot;&gt;2. 使用dos命令进行提交&lt;/h4&gt;
-&lt;pre&gt;&lt;code&gt;C:\Users\wq&amp;gt;ftp ~~10.xx.xx.xx
-连接到 1x.xx.xx.xx
+&lt;p&gt;在c:\Windows\System32\drivers\etc下的hosts文件添加IP地址的配置
+xx.xx.xx.xx nwpu&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;C:\Users\wq&amp;gt;ftp nwpu
+连接到 nwpu
 220 (vsFTPd 3.0.3)
 用户(10.13.34.11:(none)): xx
 331 Please specify the password.
@@ -90,12 +244,23 @@ ftp: 发送 4 字节，用时 0.04秒 0.10千字节/秒。&lt;/code&gt;&lt;/pre&
         <category>ftp</category>
         
         
-        <category>practice</category>
+        <category>教程</category>
         
       </item>
     
       <item>
-        <title>How to use WebSocket</title>
+        <title>Build Python Environment</title>
+        <description>
+</description>
+        <pubDate>Tue, 10 Jul 2018 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/07/10/build-python-environment/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/07/10/build-python-environment/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>WebSocket使用教程</title>
         <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#1-为什么要使用websocket&quot; id=&quot;markdown-toc-1-为什么要使用websocket&quot;&gt;1、 为什么要使用websocket&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#2-websocket-是如何进行工作的呢&quot; id=&quot;markdown-toc-2-websocket-是如何进行工作的呢&quot;&gt;2、 websocket 是如何进行工作的呢&lt;/a&gt;&lt;/li&gt;
@@ -309,10 +474,10 @@ other.sendText (&quot;Hello, world&quot;);
         <link>http://localhost:4000/2018/07/09/use-websocket-com/</link>
         <guid isPermaLink="true">http://localhost:4000/2018/07/09/use-websocket-com/</guid>
         
-        <category>教程</category>
-        
-        
         <category>WebSocket</category>
+        
+        
+        <category>教程</category>
         
       </item>
     
