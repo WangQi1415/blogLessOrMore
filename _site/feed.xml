@@ -5,8 +5,8 @@
     <description>Actually, less is more!</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 01 Aug 2018 10:09:33 +0800</pubDate>
-    <lastBuildDate>Wed, 01 Aug 2018 10:09:33 +0800</lastBuildDate>
+    <pubDate>Fri, 03 Aug 2018 09:42:35 +0800</pubDate>
+    <lastBuildDate>Fri, 03 Aug 2018 09:42:35 +0800</lastBuildDate>
     <generator>Jekyll v3.8.3</generator>
     
       <item>
@@ -24,7 +24,13 @@
   &lt;li&gt;&lt;a href=&quot;#二if_else-分支&quot; id=&quot;markdown-toc-二if_else-分支&quot;&gt;二、if_else 分支&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#三-循环&quot; id=&quot;markdown-toc-三-循环&quot;&gt;三、 循环&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#四函数&quot; id=&quot;markdown-toc-四函数&quot;&gt;四、函数&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#五导入模块&quot; id=&quot;markdown-toc-五导入模块&quot;&gt;五、导入模块&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#五导入模块&quot; id=&quot;markdown-toc-五导入模块&quot;&gt;五、导入模块&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#1初识模块&quot; id=&quot;markdown-toc-1初识模块&quot;&gt;1、初识模块&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#2-深入模块&quot; id=&quot;markdown-toc-2-深入模块&quot;&gt;2、 深入模块&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#六输入输出&quot; id=&quot;markdown-toc-六输入输出&quot;&gt;六、输入输出&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#七异常处理&quot; id=&quot;markdown-toc-七异常处理&quot;&gt;七、异常处理&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#八类&quot; id=&quot;markdown-toc-八类&quot;&gt;八、类&lt;/a&gt;&lt;/li&gt;
@@ -496,6 +502,7 @@ print(arithmetic_mean())
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h4 id=&quot;五导入模块&quot;&gt;五、导入模块&lt;/h4&gt;
+&lt;h5 id=&quot;1初识模块&quot;&gt;1、初识模块&lt;/h5&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import sys
 
@@ -522,6 +529,35 @@ mydir=dir(fibo)
 print(mydir)
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h6 id=&quot;2-深入模块&quot;&gt;2、 深入模块&lt;/h6&gt;
+
+&lt;p&gt;__name__属性&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;test.py文件中代码如下：
+print(&quot;I'm the first.&quot;)
+print(__name__)
+if __name__==&quot;__main__&quot;:
+     print(&quot;I'm the second.&quot;)
+
+import_test.py中代码如下：
+import test 
+
+直接执行test.py结果如下
+I'm the first.
+__main__
+I'm the second.
+
+执行 import_test.py结果如下：
+I'm the first.
+test
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;span style=&quot;color:red;&quot;&gt;
+可以得出结论：若一个Python文件为正在执行文件时
+__name__==”__main__“,否则它等于其文件名
+&lt;/span&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;六输入输出&quot;&gt;六、输入输出&lt;/h4&gt;
 

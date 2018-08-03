@@ -487,6 +487,7 @@ print(arithmetic_mean())
 ```
 
 #### 五、导入模块
+##### 1、初识模块
 
 ```
 import sys
@@ -514,6 +515,36 @@ mydir=dir(fibo)
 print(mydir)
 
 ```
+
+######  2、 深入模块
+
+__name__属性
+
+```
+test.py文件中代码如下：
+print("I'm the first.")
+print(__name__)
+if __name__=="__main__":
+     print("I'm the second.")
+
+import_test.py中代码如下：
+import test 
+
+直接执行test.py结果如下
+I'm the first.
+__main__
+I'm the second.
+
+执行 import_test.py结果如下：
+I'm the first.
+test
+
+```
+
+<span style="color:red;">
+可以得出结论：若一个Python文件为正在执行文件时
+\__name__=="\__main__",否则它等于其文件名
+</span>
 
 #### 六、输入输出
 
