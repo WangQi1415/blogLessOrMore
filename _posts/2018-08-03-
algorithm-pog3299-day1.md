@@ -60,3 +60,100 @@ meteorologist 气象学家
 letter  字母  
 
 
+```
+#include<iostream>
+#include<cmath>
+#include<iomanip>
+using namespace std;
+
+
+/*
+比较坑的是这道题的输入是  可以输入 T H D 中的任意两个
+*/
+int main(){
+	char ch1,ch2;
+	double T,D,H;
+	double i,exp,h,e;
+	while(cin>>ch1){
+		if(ch1=='E'){
+			break;
+		}else{
+			switch(ch1){
+				case'T':
+					cin>>T;
+					cin>>ch2;
+					switch(ch2){
+						case'D':
+							cin>>D;
+							i=5417.7530*((1/273.16)-(1/(D+273.16)));
+							exp=pow(2.718281828,i);
+							e=6.11*exp;
+							h=(0.5555)*(e-10.0);
+							H=T+h;	
+							break;
+						case'H':
+							cin>>H;
+							h=H-T;
+							e=h/0.5555+10.0;
+							exp=e/6.11;
+							i=log(exp);
+							D=1/(1/273.16-i/5417.7530)-273.16;
+							break;
+									
+					}
+					break;
+				case'H':
+					cin>>H;
+					cin>>ch2;
+					switch(ch2){
+						case'T':
+							cin>>T;
+							h=H-T;
+							e=h/0.5555+10.0;
+							exp=e/6.11;
+							i=log(exp);
+							D=1/(1/273.16-i/5417.7530)-273.16;
+							break;	
+						case'D':
+							cin>>D;
+							i=5417.7530*((1/273.16)-(1/(D+273.16)));
+							exp=pow(2.718281828,i);
+							e=6.11*exp;
+							h=(0.5555)*(e-10.0);
+							T=H-h;
+							break;
+					}
+					break;
+				case'D':
+					cin>>D;
+					cin>>ch2;
+					switch(ch2){
+						case'H':
+							cin>>H;
+							i=5417.7530*((1/273.16)-(1/(D+273.16)));
+							exp=pow(2.718281828,i);
+							e=6.11*exp;
+							h=(0.5555)*(e-10.0);
+							T=H-h;
+							break;
+						case'T':
+							cin>>T;
+							i=5417.7530*((1/273.16)-(1/(D+273.16)));
+							exp=pow(2.718281828,i);
+							e=6.11*exp;
+							h=(0.5555)*(e-10.0);
+							H=T+h;	
+							break;
+					}
+			}
+				
+			cout.setf(ios::fixed);
+			cout.precision(1);
+ 			cout<<'T'<<" "<<T<<" "<<'D'<<" "<<D<<" "<<'H'<<" "<<H<<endl;
+		}
+	}
+	
+	return 0;
+}
+
+```
