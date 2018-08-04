@@ -5,9 +5,226 @@
     <description>Actually, less is more!</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 03 Aug 2018 09:42:35 +0800</pubDate>
-    <lastBuildDate>Fri, 03 Aug 2018 09:42:35 +0800</lastBuildDate>
+    <pubDate>Sat, 04 Aug 2018 14:58:34 +0800</pubDate>
+    <lastBuildDate>Sat, 04 Aug 2018 14:58:34 +0800</lastBuildDate>
     <generator>Jekyll v3.8.3</generator>
+    
+      <item>
+        <title>POJ题目分类</title>
+        <description>
+&lt;p&gt;转自&lt;a href=&quot; https://vjudge.net/article/6&quot;&gt; https://vjudge.net/article/6&lt;/a&gt;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;OJ上的一些水题(可用来练手和增加自信) (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3299&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3299&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2159&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2159&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2739&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2739&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1083&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1083&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2262&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2262&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1503&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1503&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3006&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3006&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2255&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2255&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3094&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3094&lt;/span&gt;&lt;/a&gt;)&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;初期&quot;&gt;初期:&lt;/h3&gt;
+&lt;h5 id=&quot;一基本算法&quot;&gt;一.基本算法:&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;枚举. (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1753&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1753&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2965&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2965&lt;/span&gt;&lt;/a&gt;)  &lt;/li&gt;
+&lt;li&gt;贪心(&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1328&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1328&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2109&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2109&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2586&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2586&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;递归和分治法. &lt;/li&gt;
+&lt;li&gt;递推. &lt;/li&gt;
+&lt;li&gt;构造法.(&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3295&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3295&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;模拟法.(&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1068&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1068&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2632&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2632&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1573&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1573&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2993&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2993&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2996&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2996&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&quot;二图算法&quot;&gt;二.图算法:&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;图的深度优先遍历和广度优先遍历. &lt;/li&gt;
+&lt;li&gt;最短路径算法(dijkstra,bellman-ford,floyd,heap+dijkstra)         (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1860&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1860&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3259&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3259&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1062&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1062&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2253&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2253&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1125&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1125&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2240&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2240&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;最小生成树算法(prim,kruskal)         (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1789&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1789&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2485&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2485&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1258&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1258&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3026&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3026&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;拓扑排序 (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1094&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1094&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;二分图的最大匹配 (匈牙利算法) (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3041&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3041&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3020&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3020&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;最大流的增广路算法(KM算法). (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1459&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1459&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3436&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3436&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&quot;三数据结构&quot;&gt;三.数据结构.&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;串 (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1035&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1035&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3080&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3080&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1936&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1936&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;排序(快排、归并排(与逆序数有关)、堆排) (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2388&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2388&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2299&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2299&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;简单并查集的应用. &lt;/li&gt;
+&lt;li&gt;哈希表和二分查找等高效查找法(数的Hash,串的Hash)            (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3349&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3349&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3274&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3274&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2151&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2151&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1840&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1840&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2002&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2002&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2503&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2503&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;哈夫曼树(&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3253&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3253&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;堆 &lt;/li&gt;
+&lt;li&gt;trie树(静态建树、动态建树) (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2513&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2513&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&quot;四简单搜索&quot;&gt;四.简单搜索&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;深度优先搜索 (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2488&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2488&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3083&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3083&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3009&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3009&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1321&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1321&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2251&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2251&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;广度优先搜索(&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3278&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3278&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1426&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1426&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3126&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3126&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3087&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3087&lt;/span&gt;&lt;/a&gt;.&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3414&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3414&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;简单搜索技巧和剪枝(&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2531&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2531&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1416&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1416&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2676&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2676&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1129&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1129&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&quot;五动态规划&quot;&gt;五.动态规划&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;背包问题. (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1837&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1837&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1276&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1276&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;型如下表的简单DP(可参考lrj的书 page149): &lt;ul&gt;
+&lt;li&gt;E[j]=opt{D+w(i,j)} (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3267&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3267&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1836&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1836&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1260&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1260&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2533&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2533&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;E[i,j]=opt{D[i-1,j]+xi,D[i,j-1]+yj,D[i-1][j-1]+zij} (最长公共子序列)            (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3176&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3176&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1080&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1080&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1159&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1159&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;C[i,j]=w[i,j]+opt{C[i,k-1]+C[k,j]}.(最优二分检索树问题) &lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&quot;六数学&quot;&gt;六.数学&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;组合数学:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;加法原理和乘法原理. &lt;/li&gt;
+&lt;li&gt;排列组合. &lt;/li&gt;
+&lt;li&gt;递推关系. &lt;/li&gt;
+&lt;li&gt;(&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3252&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3252&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1850&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1850&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1019&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1019&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1942&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1942&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;数论. &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;素数与整除问题 &lt;/li&gt;
+&lt;li&gt;进制位. &lt;/li&gt;
+&lt;li&gt;同余模运算. &lt;/li&gt;
+&lt;li&gt;(&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2635&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2635&lt;/span&gt;&lt;/a&gt;, &lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3292&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3292&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1845&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1845&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2115&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2115&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;计算方法. &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;二分法求解单调函数相关知识.(&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3273&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3273&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3258&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3258&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1905&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1905&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3122&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3122&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&quot;七计算几何学&quot;&gt;七.计算几何学.&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;几何公式. &lt;/li&gt;
+&lt;li&gt;叉积和点积的运用(如线段相交的判定,点到线段的距离等). (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2031&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2031&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1039&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1039&lt;/span&gt;&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;多边型的简单算法(求面积)和相关判定(点在多边型内,多边型是否相交)          (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1408&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1408&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1584&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1584&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;凸包. (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2187&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2187&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1113&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1113&lt;/span&gt;&lt;/a&gt;)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;中级&quot;&gt;中级:&lt;/h3&gt;
+&lt;h5 id=&quot;一基本算法-1&quot;&gt;一.基本算法:&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;C++的标准模版库的应用. (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3096&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3096&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3007&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3007&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;较为复杂的模拟题的训练(&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3393&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3393&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1472&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1472&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3371&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3371&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1027&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1027&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2706&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2706&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&quot;二图算法-1&quot;&gt;二.图算法:&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;差分约束系统的建立和求解. (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1201&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1201&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2983&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2983&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;最小费用最大流(&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2516&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2516&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2195&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2195&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;双连通分量(&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2942&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2942&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;强连通分支及其缩点.(&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2186&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2186&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;图的割边和割点(&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3352&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3352&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;最小割模型、网络流规约(&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3308&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3308&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&quot;三数据结构-1&quot;&gt;三.数据结构.&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;线段树. (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2528&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2528&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2828&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2828&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2777&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2777&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2886&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2886&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2750&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2750&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;静态二叉检索树. (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2482&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2482&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2352&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2352&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;树状树组(&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1195&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1195&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3321&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3321&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;RMQ. (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3264&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3264&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3368&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3368&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;并查集的高级应用. (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1703&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1703&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2492&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2492&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;KMP算法. (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1961&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1961&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2406&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2406&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&quot;四搜索&quot;&gt;四.搜索&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;最优化剪枝和可行性剪枝 &lt;/li&gt;
+&lt;li&gt;搜索的技巧和优化 (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3411&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3411&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1724&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1724&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;记忆化搜索(&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3373&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3373&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1691&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1691&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&quot;五动态规划-1&quot;&gt;五.动态规划&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;较为复杂的动态规划(如动态规划解特别的施行商问题等)          (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1191&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1191&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1054&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1054&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3280&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3280&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2029&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2029&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2948&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2948&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1925&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1925&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3034&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3034&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;记录状态的动态规划. (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3254&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3254&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2411&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2411&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1185&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1185&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;树型动态规划(&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2057&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2057&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1947&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1947&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2486&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2486&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3140&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3140&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&quot;六数学-1&quot;&gt;六.数学&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;组合数学: &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;容斥原理. &lt;/li&gt;
+&lt;li&gt;抽屉原理. &lt;/li&gt;
+&lt;li&gt;置换群与Polya定理(&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1286&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1286&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2409&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2409&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3270&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3270&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1026&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1026&lt;/span&gt;&lt;/a&gt;). &lt;/li&gt;
+&lt;li&gt;递推关系和母函数.        &lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;数学. &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;高斯消元法(&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2947&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2947&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1487&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1487&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2065&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2065&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1166&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1166&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1222&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1222&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;概率问题. (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3071&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3071&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3440&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3440&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;GCD、扩展的欧几里德(中国剩余定理) (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3101&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3101&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;计算方法. &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;0/1分数规划. (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2976&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2976&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;三分法求解单峰(单谷)的极值. &lt;/li&gt;
+&lt;li&gt;矩阵法(&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3150&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3150&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3422&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3422&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3070&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3070&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;迭代逼近(&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3301&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3301&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;随机化算法(&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3318&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3318&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2454&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2454&lt;/span&gt;&lt;/a&gt;) &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;杂题.          (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1870&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1870&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3296&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3296&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3286&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3286&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1095&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1095&lt;/span&gt;&lt;/a&gt;) &lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&quot;七计算几何学-1&quot;&gt;七.计算几何学.&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;坐标离散化. &lt;/li&gt;
+&lt;li&gt;扫描线算法(例如求矩形的面积和周长并,常和线段树或堆一起使用).             (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1765&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1765&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1177&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1177&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1151&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1151&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3277&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3277&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2280&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2280&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3004&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3004&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;多边形的内核(半平面交)(&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3130&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3130&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3335&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3335&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;几何工具的综合应用.(&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1819&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1819&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1066&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1066&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2043&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2043&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3227&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3227&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2165&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2165&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3429&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3429&lt;/span&gt;&lt;/a&gt;)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;高级&quot;&gt;高级:&lt;/h3&gt;
+&lt;h5 id=&quot;一基本算法要求&quot;&gt;一.基本算法要求:&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;代码快速写成,精简但不失风格             (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2525&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2525&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1684&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1684&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1421&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1421&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1048&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1048&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2050&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2050&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3306&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3306&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;保证正确性和高效性. &lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3434&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3434&lt;/span&gt;&lt;/a&gt; &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&quot;二图算法-2&quot;&gt;二.图算法:&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;度限制最小生成树和第K最短路. (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1639&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1639&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;最短路,最小生成树,二分图,最大流问题的相关理论(主要是模型建立和求解)         (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3155&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3155&lt;/span&gt;&lt;/a&gt;, &lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2112&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2112&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1966&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1966&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3281&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3281&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1087&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1087&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2289&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2289&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3216&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3216&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2446&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2446&lt;/span&gt;&lt;/a&gt; )&lt;/li&gt;
+&lt;li&gt;最优比率生成树. (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2728&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2728&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;最小树形图(&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3164&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3164&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;次小生成树. &lt;/li&gt;
+&lt;li&gt;无向图、有向图的最小环    &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&quot;三数据结构-2&quot;&gt;三.数据结构.&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;trie图的建立和应用. (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2778&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2778&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;LCA和RMQ问题(LCA(最近公共祖先问题) 有离线算法(并查集+dfs) 和 在线算法&lt;br /&gt;
+      (RMQ+dfs)).(&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1330&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1330&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;双端队列和它的应用(维护一个单调的队列,常常在动态规划中起到优化状态转移&lt;br /&gt;
+的目的). (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2823&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2823&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;左偏树(可合并堆).   &lt;/li&gt;
+&lt;li&gt;后缀树(非常有用的数据结构,也是赛区考题的热点).      (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3415&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3415&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3294&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3294&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&quot;四搜索-1&quot;&gt;四.搜索&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;较麻烦的搜索题目训练(&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1069&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1069&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3322&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3322&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1475&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1475&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1924&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1924&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2049&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2049&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3426&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3426&lt;/span&gt;&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;广搜的状态优化:利用M进制数存储状态、转化为串用hash表判重、按位压缩存储&lt;br /&gt;
+状态、双向广搜、A*算法. (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1768&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1768&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1184&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1184&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1872&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1872&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1324&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1324&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2046&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2046&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1482&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1482&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;深搜的优化:尽量用位运算、一定要加剪枝、函数参数尽可能少、层数不易过大&lt;br /&gt;
+、可以考虑双向搜索或者是轮换搜索、IDA*算法. (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3131&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3131&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2870&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2870&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2286&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2286&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&quot;五动态规划-2&quot;&gt;五.动态规划&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;需要用数据结构优化的动态规划.          (&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2754&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2754&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3378&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3378&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3017&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3017&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;四边形不等式理论. &lt;/li&gt;
+&lt;li&gt;较难的状态DP(&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3133&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3133&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&quot;六数学-2&quot;&gt;六.数学&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;组合数学. &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;MoBius反演(&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2888&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2888&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2154&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2154&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;偏序关系理论. &lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;博奕论. &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;极大极小过程(&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3317&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3317&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1085&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1085&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;Nim问题. &lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&quot;七计算几何学-2&quot;&gt;七.计算几何学.&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;半平面求交(&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3384&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3384&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2540&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2540&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;可视图的建立(&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2966&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2966&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;li&gt;点集最小圆覆盖. &lt;/li&gt;
+&lt;li&gt;对踵点(&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2079&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2079&lt;/span&gt;&lt;/a&gt;) &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&quot;八综合题&quot;&gt;八.综合题.&lt;/h5&gt;
+&lt;p&gt;(&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3109&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3109&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1478&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1478&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1462&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1462&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2729&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2729&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2048&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2048&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3336&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3336&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-3315&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 3315&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-2148&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 2148&lt;/span&gt;&lt;/a&gt;,&lt;a target=&quot;_blank&quot; href=&quot;/problem/POJ-1263&quot;&gt;&lt;span class=&quot;tag tag-default&quot;&gt;POJ 1263&lt;/span&gt;&lt;/a&gt;)&lt;/p&gt;
+</description>
+        <pubDate>Fri, 03 Aug 2018 14:37:01 +0800</pubDate>
+        <link>http://localhost:4000/2018/08/03/poj-intro/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/08/03/poj-intro/</guid>
+        
+        <category>Algorithm</category>
+        
+        
+        <category>算法之旅</category>
+        
+      </item>
     
       <item>
         <title>Python基础</title>
