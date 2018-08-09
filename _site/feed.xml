@@ -5,9 +5,145 @@
     <description>Actually, less is more!</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 04 Aug 2018 14:58:34 +0800</pubDate>
-    <lastBuildDate>Sat, 04 Aug 2018 14:58:34 +0800</lastBuildDate>
+    <pubDate>Thu, 09 Aug 2018 22:19:40 +0800</pubDate>
+    <lastBuildDate>Thu, 09 Aug 2018 22:19:40 +0800</lastBuildDate>
     <generator>Jekyll v3.8.3</generator>
+    
+      <item>
+        <title>Windows下Maven的配置</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#1下载&quot; id=&quot;markdown-toc-1下载&quot;&gt;1、下载：&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#2配置环境变量&quot; id=&quot;markdown-toc-2配置环境变量&quot;&gt;2、配置环境变量&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#3更改settingxml文件&quot; id=&quot;markdown-toc-3更改settingxml文件&quot;&gt;3、更改setting.xml文件&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#4在eclipse中配置加载settingxml文件&quot; id=&quot;markdown-toc-4在eclipse中配置加载settingxml文件&quot;&gt;4、在eclipse中配置加载setting.xml文件&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;1下载&quot;&gt;1、下载：&lt;/h4&gt;
+&lt;p&gt;官网：&lt;a href=&quot;https://maven.apache.org/download.cgi&quot;&gt;https://maven.apache.org/download.cgi&lt;/a&gt; &lt;br /&gt;
+网盘链接：&lt;a href=&quot;https://pan.baidu.com/s/1EfOfU5IhewEGaxE0RnNHIQ&quot;&gt;https://pan.baidu.com/s/1EfOfU5IhewEGaxE0RnNHIQ&lt;/a&gt;  密码：sfm3&lt;/p&gt;
+
+&lt;h4 id=&quot;2配置环境变量&quot;&gt;2、配置环境变量&lt;/h4&gt;
+
+&lt;p&gt;系统环境变量里，添加MAVEN_HOME(或M2_HOME)，其值为D:\maven，然后PATH环境变量最后附加上”;%MAVEN_HOME%\bin”&lt;/p&gt;
+
+&lt;p&gt;检测方法：&lt;/p&gt;
+
+&lt;p&gt;a) 重新进入命令行(DOS窗口)模式，输入 echo %MAVEN_HOME% 如果能显示 D:\maven 说明环境变量起作用了&lt;/p&gt;
+
+&lt;p&gt;b) 输入 mvn -version，正常情况下会显示maven及jdk的版本号，（前提：jdk环境必须先安装好，否则后面无法正常编译项目）。&lt;/p&gt;
+
+&lt;h4 id=&quot;3更改settingxml文件&quot;&gt;3、更改setting.xml文件&lt;/h4&gt;
+&lt;p&gt;位于 D:\maven\conf（复制网盘中的setting.xml文件替换即可）&lt;br /&gt;
+主要更改了以下两个位置:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &amp;lt;mirror&amp;gt;
+      &amp;lt;id&amp;gt;alimaven&amp;lt;/id&amp;gt;
+      &amp;lt;name&amp;gt;aliyun maven&amp;lt;/name&amp;gt;
+      &amp;lt;url&amp;gt;http://maven.aliyun.com/nexus/content/groups/public/&amp;lt;/url&amp;gt;
+      &amp;lt;mirrorOf&amp;gt;central&amp;lt;/mirrorOf&amp;gt;        
+   &amp;lt;/mirror&amp;gt;
+
+
+&amp;lt;localRepository&amp;gt;D:/maven_rep&amp;lt;/localRepository&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h4 id=&quot;4在eclipse中配置加载settingxml文件&quot;&gt;4、在eclipse中配置加载setting.xml文件&lt;/h4&gt;
+&lt;p&gt;preferences -&amp;gt; User Settings -&amp;gt;Browse User Setting-&amp;gt;(setting.xml文件所在的位置)-&amp;gt;apply&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 09 Aug 2018 18:37:01 +0800</pubDate>
+        <link>http://localhost:4000/2018/08/09/maven-file-read/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/08/09/maven-file-read/</guid>
+        
+        <category>maven</category>
+        
+        
+        <category>Java学习</category>
+        
+      </item>
+    
+      <item>
+        <title>更改hosts文件使用IPV6访问外网</title>
+        <description>
+&lt;p&gt;找到hosts文件，将其覆盖&lt;br /&gt;
+Windows：C:\Windows\System32\drivers\etc&lt;br /&gt;
+Ubuntu： /etc/&lt;/p&gt;
+
+&lt;p&gt;hosts文件下载：
+链接: &lt;a href=&quot;https://pan.baidu.com/s/1K3Nj1Bhhez7Jl49Er9kXSw&quot;&gt;https://pan.baidu.com/s/1K3Nj1Bhhez7Jl49Er9kXSw&lt;/a&gt;  &lt;br /&gt;
+密码: mrtr&lt;/p&gt;
+
+&lt;p&gt;友情提示：建议备份原hosts文件&lt;/p&gt;
+</description>
+        <pubDate>Thu, 09 Aug 2018 16:37:01 +0800</pubDate>
+        <link>http://localhost:4000/2018/08/09/IPV6-deploy/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/08/09/IPV6-deploy/</guid>
+        
+        <category>IP</category>
+        
+        
+        <category>随笔杂谈</category>
+        
+      </item>
+    
+      <item>
+        <title>Java获取本机IP</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#获取本地ip地址的方法如下&quot; id=&quot;markdown-toc-获取本地ip地址的方法如下&quot;&gt;获取本地IP地址的方法如下：&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;获取本地ip地址的方法如下&quot;&gt;获取本地IP地址的方法如下：&lt;/h4&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public class TestIp {
+	public static void main(String[] args) throws UnknownHostException {
+		 InetAddress addr = InetAddress.getLocalHost();
+	      System.out.println(&quot;Local HostAddress: &quot;+addr.getHostAddress());
+	      String hostname = addr.getHostName();
+	      System.out.println(&quot;Local host name: &quot;+hostname);
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+</description>
+        <pubDate>Thu, 09 Aug 2018 14:39:01 +0800</pubDate>
+        <link>http://localhost:4000/2018/08/09/java-ip-localhost/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/08/09/java-ip-localhost/</guid>
+        
+        <category>java</category>
+        
+        
+        <category>Java学习</category>
+        
+      </item>
+    
+      <item>
+        <title>Maven项目资源文件位置及其读取方法</title>
+        <description>
+&lt;p&gt;###Maven项目资源文件位置及其读取方法
+将文件放在 src/main/resource/文件下:&lt;br /&gt;
+&lt;img src=&quot;/styles/images/2018-08-09/maven.JPG&quot; alt=&quot;maven&quot; width=&quot;300&quot; /&gt;&lt;br /&gt;
+当项目编译运行过之后，文件会存放在 D:\webservice\AsMaven\target\classes\file下&lt;/p&gt;
+
+&lt;p&gt;可使用以下方法访问:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;System.out.println(&quot;classpath路径： &quot;+FileRead.class.getClassLoader().getResource(&quot;&quot;).getPath());
+System.out.println(&quot;文件所在路径： &quot;+FileRead.class.getClassLoader().getResource(&quot;file/rusult.xml&quot;).getPath());
+System.out.println(&quot;当前类路径： &quot;+FileRead.class.getResource(&quot;&quot;).getPath());
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;输出结果：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;classpath路径：D:/webservice/AsMaven/target/classes/
+文件所在路径：D:/webservice/AsMaven/target/classes/D:/webservice/AsMaven/target/classes/file/rusult.xml
+当前类路径：   D:/webservice/AsMaven/target/classes/cn/nwpu/fileread/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+</description>
+        <pubDate>Thu, 09 Aug 2018 14:37:01 +0800</pubDate>
+        <link>http://localhost:4000/2018/08/09/maven-eclipce-java/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/08/09/maven-eclipce-java/</guid>
+        
+        <category>maven</category>
+        
+        
+        <category>Java学习</category>
+        
+      </item>
     
       <item>
         <title>POJ题目分类</title>
@@ -1477,228 +1613,6 @@ ftp: 发送 4 字节，用时 0.04秒 0.10千字节/秒。&lt;/code&gt;&lt;/pre&
         <link>http://localhost:4000/2018/07/10/build-python-environment/</link>
         <guid isPermaLink="true">http://localhost:4000/2018/07/10/build-python-environment/</guid>
         
-        
-      </item>
-    
-      <item>
-        <title>WebSocket使用教程</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#1-为什么要使用websocket&quot; id=&quot;markdown-toc-1-为什么要使用websocket&quot;&gt;1、 为什么要使用websocket&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#2-websocket-是如何进行工作的呢&quot; id=&quot;markdown-toc-2-websocket-是如何进行工作的呢&quot;&gt;2、 websocket 是如何进行工作的呢&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#3-编写第一个demo&quot; id=&quot;markdown-toc-3-编写第一个demo&quot;&gt;3、 编写第一个Demo&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#a-热身&quot; id=&quot;markdown-toc-a-热身&quot;&gt;a 、热身&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#b第一个demo&quot; id=&quot;markdown-toc-b第一个demo&quot;&gt;b、第一个demo&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;参考博客： &lt;a href=&quot;https://blog.csdn.net/u014316363/article/details/43408325 &quot;&gt;https://blog.csdn.net/u014316363/article/details/43408325 &lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;1-为什么要使用websocket&quot;&gt;1、 为什么要使用websocket&lt;/h2&gt;
-&lt;p&gt;传统的浏览器，是我们在浏览器端向服务器端请求数据，服务器端再将数据发送过来，随着对实时通信的需求，我们需要当服务器端的数据发生变化时，便将数据推送到浏览器端。这时我们想到的办法是建立长传机制，在服务器仍然有数据发送的时候，服务器与浏览器之间保持http连接，但是http连接的开销过大， 每次都需要发送http头和cookie数据 ，这无疑大大的加大了实际发送给服务器的数据量。为了解决这一问题，国际互联网工程任务组（The Internet Engineering Task Force，简称 IETF）设计了新的标准 也就是websocket，详见： &lt;a href=&quot;http://www.oracle.com/technetwork/articles/java/jsr356-1937161.html&quot;&gt;JSR 356, Java API for WebSocket&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;2-websocket-是如何进行工作的呢&quot;&gt;2、 websocket 是如何进行工作的呢&lt;/h2&gt;
-&lt;p&gt;客户端建立websocket连接是通过 websocket握手过程建立的&lt;br /&gt;
-WebSocket握手过程&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;首先是由客户端发送常规的HTTP请求给服务器端，这个请求中包含了升级的头部，它告诉了服务器  希望建立websocket连接&lt;br /&gt;
-以下为请求建立连接的头部&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre&gt;&lt;code&gt;
-GET ws://websocket.example.com/ HTTP/1.1
-Origin: http://example.com
-Connection: Upgrade
-Host: websocket.example.com
-Upgrade: websocket
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;值得注意的是websocket使用的是  ws的方案，而wss是类似于 https一样的更为安全的方案&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;如果服务器支持websocket协议 并且同意与浏览器建立websocket连接   则响应该请求&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre&gt;&lt;code&gt;	
-	HTTP/1.1 101 WebSocket Protocol Handshake
-	Date: Wed, 16 Oct 2013 10:07:34 GMT
-	Connection: Upgrade
-	Upgrade: WebSocket
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;这样就建立了像http一样的连接 并且可以进行发送数据  与http连接相似的是  他们都是建立在tcp/ip连接上&lt;/p&gt;
-
-&lt;p&gt;那怎么可以保证websocket传输的可靠性呢？&lt;br /&gt;
-为了保证这些信息可以正确的被重构，每一个帧都有4-12个字节的数据作为前缀，利用这种基于帧的数据传送，可以有效的减少无用数据的传送。&lt;br /&gt;
-如图：一个服务器可以连接好几个客户端  客户端可以用实现符合RFC 6455规范  与服务器端进行通信&lt;br /&gt;
-&lt;img src=&quot;/styles/images/websocket/websocket_conmu.png&quot; alt=&quot;websocket_commu&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;3-编写第一个demo&quot;&gt;3、 编写第一个Demo&lt;/h2&gt;
-&lt;h4 id=&quot;a-热身&quot;&gt;a 、热身&lt;/h4&gt;
-&lt;p&gt;（1）建立连接&lt;br /&gt;
-使用js建立连接&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;var ws = 
-			new WebSocket('ws://localhost:8080/websocketdemo02/websocket');&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;可以将其放在button里面,手动点击建立连接即封装成一个函数，也可以放在js代码段的最前面，页面加载时便建立了连接。&lt;br /&gt;
-服务器端实现：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@ServerEndpoint(value=&quot;/chat&quot;,encoders=MessageEncoder.class,decoders=MessageDecoder.class)
-public class MyServer {
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;可以通过ws://localhost:8080/项目名称/chat 与其建立连接&lt;br /&gt;
-若在其他主机上 则可以通过 IP地址进行连接   var ws=new WebSocket(‘ws://XXXX.XXXX.XXXX.XXXX/项目名称/chat’)&lt;br /&gt;
-（2）常用方法说明&lt;br /&gt;
-onOpen()  当连接建立成功后调用该函数；&lt;br /&gt;
-	服务器端:被@OnOpen()注解的函数&lt;em&gt;**&lt;/em&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@OnOpen
-	public void onOpen(Session session) {
-		System.out.println(String.format(&quot;%s jioned the chat room.&quot;,session.getId()));
-		peers.add(session);
-	}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;客户端：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;ws.onopen=function(event){
-
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;需要注意的是  websocket是事件驱动的API   我们既可以采用注解，也可以采用接口驱动 这里我们采用接口驱动&lt;/p&gt;
-
-&lt;p&gt;onMessage()  当接收到信息时自动调用该函数；&lt;br /&gt;
-	服务器端：被@OnMessage注解的函数&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@OnMessage
-	public void onMessage(String str,Session session) throws IOException,EncodeException, DecodeException{
-		//broadcast the message  除了自己之外的别人都接受到消息
-		System.out.println(str);
-			for(Session peer:peers) {
-			if(!session.getId().equals(peer.getId())) {
-				peer.getBasicRemote().sendText(str);
-			}
-		}
-	}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;static Set&lt;Session&gt; peers=Collections.synchronizedSet(new HashSet&lt;Session&gt;());可以记录所有的连接到该服务端的 session  
-客户端 :&lt;/Session&gt;&lt;/Session&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;//接收到消息的回调方法
-	ws.onmessage=function(event){
-		//alert(&quot;onmessage&quot;);//有消息发送过来时才调用该函数
-		console.log(event.data);//
-		var obj=JSON.parse(event.data);
-		$(&quot;#ct&quot;).html(obj.message);
-	}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;OnClose() 函数关闭时自动调用该函数；&lt;br /&gt;
-	服务器端：被 @OnClose注解的函数&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@OnClose
-	public void OnClose(Session session) throws IOException,EncodeException{
-		System.out.println(String.format(&quot;%s left the chat root.&quot;,session.getId()));
-		peers.remove(session);
-		
-		for(Session peer:peers) {
-			Message message=new Message();
-			message.setSender(&quot;server&quot;);
-			message.setContent(String.format(&quot;%s left the chat room&quot;,(String)session.getUserProperties().get(&quot;user&quot;)));
-			message.setRecieved(new Date());
-			peer.getBasicRemote().sendObject(message);
-		}
-	}&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;客户端：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;/连接关闭的回调方法
-      websocket.onclose = function () {
-          setMessageInnerHTML(&quot;WebSocket连接关闭&quot;);
-      }&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;onError() 连接发生错误时调用该函数。&lt;br /&gt;
-服务器端：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@OnError
-	public void onError () {
-	}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;客户端：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;ws.onerror=function(event){
-		alert(&quot;erorr&quot;);
-	}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;（3）发送消息&lt;br /&gt;
-在js中发送字符串&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;exampleSocket.onopen = function (event) {
-  exampleSocket.send(&quot;Here's some text that the server is urgently awaiting!&quot;); 
-};&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;在js中通过websocket发送JSON格式的数据&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;function sendText() {
-  // Construct a msg object containing the data the server needs to process the message from the chat client.
-  var msg = {
-    type: &quot;message&quot;,
-    text: document.getElementById(&quot;text&quot;).value,
-    id:   clientID,
-    date: Date.now()
-  };
-
-  // Send the msg object as a JSON-formatted string.
-  exampleSocket.send(JSON.stringify(msg));
-  
-  // Blank the text input element, ready to receive the next line of text from the user.
-  document.getElementById(&quot;text&quot;).value = &quot;&quot;;
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Js中对JSON格式的数据进行解析&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;exampleSocket.onmessage = function(event) {
-  var f = document.getElementById(&quot;chatbox&quot;).contentDocument;
-  var text = &quot;&quot;;
-  var msg = JSON.parse(event.data);
-  var time = new Date(msg.date);
-  var timeStr = time.toLocaleTimeString();
-  
-  switch(msg.type) {
-    case &quot;id&quot;:
-      clientID = msg.id;
-      setUsername();
-      break;
-    case &quot;username&quot;:
-      text = &quot;&lt;b&gt;User &lt;em&gt;&quot; + msg.name + &quot;&lt;/em&gt; signed in at &quot; + timeStr + &quot;&lt;/b&gt;&lt;br /&gt;&quot;;
-      break;
-    case &quot;message&quot;:
-      text = &quot;(&quot; + timeStr + &quot;) &lt;b&gt;&quot; + msg.name + &quot;&lt;/b&gt;: &quot; + msg.text + &quot;&lt;br /&gt;&quot;;
-      break;
-    case &quot;rejectusername&quot;:
-      text = &quot;&lt;b&gt;Your username has been set to &lt;em&gt;&quot; + msg.name + &quot;&lt;/em&gt; because the name you chose is in use.&lt;/b&gt;&lt;br /&gt;&quot;
-      break;
-    case &quot;userlist&quot;:
-      var ul = &quot;&quot;;
-      for (i=0; i &amp;lt; msg.users.length; i++) {
-        ul += msg.users[i] + &quot;&lt;br /&gt;&quot;;
-      }
-      document.getElementById(&quot;userlistbox&quot;).innerHTML = ul;
-      break;
-  }
-  
-  if (text.length) {
-    f.write(text);
-    document.getElementById(&quot;chatbox&quot;).contentWindow.scrollByPages(1);
-  }
-};&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;在java后台服务器端向客户端发送数据&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;方法一：
-@OnMessage
-public String myOnMessage (String txt) {
-   return txt.toUpperCase();
-}
-如果@OnMessage 注解的方法返回值不为空  返回的内容将会被发送
-
-
-方法二：  
-RemoteEndpoint.Basic other = session.getBasicRemote();
-other.sendText (&quot;Hello, world&quot;);
-
-发送对象时   sendObject   ……..&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&quot;b第一个demo&quot;&gt;b、第一个demo&lt;/h4&gt;
-&lt;p&gt;第一个demo我们编写一个群聊系统我们需要实现的功能是  当一个客户端发送消息，其它的客户端都可以收到。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;创建消息实体类&lt;/li&gt;
-  &lt;li&gt;消息转换为json类&lt;/li&gt;
-  &lt;li&gt;解析json为消息实体类&lt;/li&gt;
-  &lt;li&gt;服务器类&lt;/li&gt;
-  &lt;li&gt;客户端&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;项目源码地址  &lt;a href=&quot;https://github.com/WangQi1415/WebSocket/ &quot;&gt;https://github.com/WangQi1415/WebSocket/ &lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Mon, 09 Jul 2018 13:31:01 +0800</pubDate>
-        <link>http://localhost:4000/2018/07/09/use-websocket-com/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/07/09/use-websocket-com/</guid>
-        
-        <category>WebSocket</category>
-        
-        
-        <category>教程</category>
         
       </item>
     

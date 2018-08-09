@@ -10,6 +10,7 @@ tag: Algorithm
 {:toc}
 
 
+
 ###[Humidex](http://poj.org/problem?id=3299) 
 ####题目描述
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The humidex is a measurement used by Canadian meteorologists to reflect the combined effect of heat and humidity. It differs from the heat index used in the United States in using dew point rather than relative humidity.  
