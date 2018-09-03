@@ -8,6 +8,11 @@ permalink: /reference/
 {:toc}
 
 
+
+云风的 BLOG
+=====================
+[云风的 BLOG](https://blog.codingnow.com/) 
+
 走向架构师之路
 =====================
 [走向架构师之路](http://blog.csdn.net/cutesource/article/details/4901506)

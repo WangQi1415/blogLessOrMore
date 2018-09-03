@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Day01-POJ3299-Humidex"
-date:   2018-08-03 14:37:01 +0800
+title:  "Day02POJ3299-Humidex"
+date:   2018-08-04 14:37:01 +0800
 categories: 算法之旅
 tag: Algorithm
 ---
@@ -10,8 +10,8 @@ tag: Algorithm
 {:toc}
 
 
-###[Humidex](http://poj.org/problem?id=3299) 
-####题目描述
+### [Humidex](http://poj.org/problem?id=3299) 
+#### 题目描述
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ancient Roman empire had a strong government system with various departments, including a secret service department. Important documents were sent between provinces and the capital in encrypted form to prevent eavesdropping. The most popular ciphers in those times were so called substitution cipher and permutation cipher. 
 Substitution cipher changes all occurrences of each letter to some other letter. Substitutes for all letters must be different. For some letters substitute letter may coincide with the original letter. For example, applying substitution cipher that changes all letters from 'A' to 'Y' to the next ones in the alphabet, and changes 'Z' to 'A', to the message "VICTORIOUS" one gets the message "WJDUPSJPVT". 
 Permutation cipher applies some permutation to the letters of the message. For example, applying the permutation <2, 1, 5, 4, 3, 7, 6, 10, 9, 8> to the message "VICTORIOUS" one gets the message "IVOTCIRSUO". 

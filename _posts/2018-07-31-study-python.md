@@ -2,8 +2,8 @@
 layout: post
 title:  "Python基础"
 date:   2018-07-31 14:37:01 +0800
-categories: 学习笔记
-tag: Python
+categories: Python
+tag: Python基础
 ---
 
 * content

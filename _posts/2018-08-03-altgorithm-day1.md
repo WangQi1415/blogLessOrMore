@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Day01-POJ3299-Humidex"
-date:   2018-08-03 14:37:01 +0800
+date:   2018-08-03 18:37:01 +0800
 categories: 算法之旅
 tag: Algorithm
 ---
@@ -11,8 +11,8 @@ tag: Algorithm
 
 
 
-###[Humidex](http://poj.org/problem?id=3299) 
-####题目描述
+### [Humidex](http://poj.org/problem?id=3299) 
+#### 题目描述
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The humidex is a measurement used by Canadian meteorologists to reflect the combined effect of heat and humidity. It differs from the heat index used in the United States in using dew point rather than relative humidity.  
  
 When the temperature is 30°C (86°F) and the dew point is 15°C (59°F), the humidex is 34 (note that humidex is a dimensionless number, but that the number indicates an approximate temperature in C). If the temperature remains 30°C and the dew point rises to 25°C (77°F), the humidex rises to 42.3.  
