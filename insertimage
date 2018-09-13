@@ -1,0 +1,1 @@
+<img src="{{ '/styles/images/websocket/websocket_conmu.png' | prepend: site.baseurl }}" alt="websocket_commu" width="500" />

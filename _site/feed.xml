@@ -5,9 +5,699 @@
     <description>Actually, less is more!</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 03 Sep 2018 11:26:31 +0800</pubDate>
-    <lastBuildDate>Mon, 03 Sep 2018 11:26:31 +0800</lastBuildDate>
+    <pubDate>Thu, 13 Sep 2018 14:33:27 +0800</pubDate>
+    <lastBuildDate>Thu, 13 Sep 2018 14:33:27 +0800</lastBuildDate>
     <generator>Jekyll v3.8.3</generator>
+    
+      <item>
+        <title>字符串复习与强化</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#1对齐&quot; id=&quot;markdown-toc-1对齐&quot;&gt;1、对齐&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#2子串搜索&quot; id=&quot;markdown-toc-2子串搜索&quot;&gt;2、子串搜索&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#3查找&quot; id=&quot;markdown-toc-3查找&quot;&gt;3、查找&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#4替换&quot; id=&quot;markdown-toc-4替换&quot;&gt;4、替换&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#5-分割&quot; id=&quot;markdown-toc-5-分割&quot;&gt;5、 分割&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#6大小写转换&quot; id=&quot;markdown-toc-6大小写转换&quot;&gt;6、大小写转换&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#7内容测试&quot; id=&quot;markdown-toc-7内容测试&quot;&gt;7、内容测试&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#8连接&quot; id=&quot;markdown-toc-8连接&quot;&gt;8、连接&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#9类型转换&quot; id=&quot;markdown-toc-9类型转换&quot;&gt;9、类型转换&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;1对齐&quot;&gt;1、对齐&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 左对齐
+string1 = 'cat'
+string2 ='catcat'
+string3='catcatcat'
+width = 7
+
+
+# print left justified string
+print(string1.ljust(width,'c'))  #第二个字符指定空的部分的填充字符，默认为空格
+print(string2.ljust(width))
+print(string3.ljust(width)) #如果width小于字符串的长度，则会返回原始的字符串，而不是裁段它
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;2子串搜索&quot;&gt;2、子串搜索&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#子字符串搜索测试
+mystr='xxxSPAMxxx'
+print('SPAM' in mystr) #True
+print('Ni' in mystr) #False
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3 id=&quot;3查找&quot;&gt;3、查找&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#查找
+print(mystr.find('SPAM')) #3  返回首个匹配的位置偏移
+print(mystr.find('Ni')) #-1 找不到返回-1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;4替换&quot;&gt;4、替换&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#替换
+mystr.replace('SPAM','aa')
+print(mystr) #xxxSPAMxxx  因为字符串是不可变的 所以原字符串并没有发生改变
+print(mystr.replace('SPAM','aa')) #而是返回新的字符串
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;5-分割&quot;&gt;5、 分割&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#分割
+mystr='\t Ni\n'
+print(mystr.strip())  #Ni   去除空白分隔符
+print(mystr.rstrip()) #同上，只不过是去除右侧的空白字符
+mystr='aaa,bbb,ccc'
+
+mylist=mystr.split(',')#以，为分割，分割为子字符串组成的列表
+print(mylist)
+
+mystr='a b\nc\nd'
+print(mystr.split()) #默认分隔符：泛空格符
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;6大小写转换&quot;&gt;6、大小写转换&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#大小写转换
+mystr='SHRUBBERY'
+print(mystr.lower())
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;7内容测试&quot;&gt;7、内容测试&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#内容测试
+print(mystr.isdigit())#False
+print(mystr.isalpha())#True
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;8连接&quot;&gt;8、连接&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#连接
+delim='NI'
+print(delim.join(['aaa','bbb','ccc']))  #连接子字符串列表  aaaNIbbbNIccc
+print(' '.join(['A','dead','parrot'])) #在其间添加空格符
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;9类型转换&quot;&gt;9、类型转换&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#转换
+chars=list('Lorreta') #转换为字符组成的列表
+print(chars)
+chars.append('!')
+str=''.join(chars)  #生成字符串，分隔符为空
+print(str) #Lorreta!
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Wed, 12 Sep 2018 14:30:01 +0800</pubDate>
+        <link>http://localhost:4000/2018/09/12/python-string-strong/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/09/12/python-string-strong/</guid>
+        
+        <category>Python</category>
+        
+        
+        <category>Python</category>
+        
+      </item>
+    
+      <item>
+        <title>Python中的 getattr()</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#方法摘要&quot; id=&quot;markdown-toc-方法摘要&quot;&gt;方法摘要：&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#参数&quot; id=&quot;markdown-toc-参数&quot;&gt;参数&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#返回值&quot; id=&quot;markdown-toc-返回值&quot;&gt;返回值：&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#代码测试&quot; id=&quot;markdown-toc-代码测试&quot;&gt;代码测试：&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;方法摘要&quot;&gt;方法摘要：&lt;/h3&gt;
+&lt;p&gt;getattr()用来返回对象的命名属性的值，若不存在则返回默认值&lt;/p&gt;
+&lt;h3 id=&quot;参数&quot;&gt;参数&lt;/h3&gt;
+&lt;p&gt;有多个参数&lt;br /&gt;
+     1、 object - 要返回其命名属性值的对象&lt;br /&gt;
+     2、 name - 包含属性名称的字符串&lt;br /&gt;
+     3、 default (Optional) - 找不到命名属性时返回的值&lt;/p&gt;
+&lt;h3 id=&quot;返回值&quot;&gt;返回值：&lt;/h3&gt;
+&lt;p&gt;     1、 给定对象的命名属性的值&lt;br /&gt;
+     2、 如果未找到命名属性则返回 default设置的值&lt;br /&gt;
+     3、 如果未找到命名属性且未定义默认值，则报AttributeError exception&lt;/p&gt;
+&lt;h3 id=&quot;代码测试&quot;&gt;代码测试：&lt;/h3&gt;
+&lt;pre&gt;
+class Person:
+    age = 23
+    name = &quot;Adam&quot;
+
+person = Person()
+print('The age is:', getattr(person, &quot;age&quot;))  #The age is: 23
+print('The name is',getattr(person,&quot;name&quot;))  #The name is Adam
+print('The sex is',getattr(person,&quot;sex&quot;))  #AttributeError: 'Person' object has no attribute 'sex'
+print('The sex is',getattr(person,&quot;sex&quot;,&quot;not found&quot;))  #The sex is not found
+print('The age is:', person.age)
+&lt;/pre&gt;
+</description>
+        <pubDate>Wed, 12 Sep 2018 14:30:01 +0800</pubDate>
+        <link>http://localhost:4000/2018/09/12/python-str_dict/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/09/12/python-str_dict/</guid>
+        
+        <category>Python</category>
+        
+        
+        <category>Python</category>
+        
+      </item>
+    
+      <item>
+        <title>Python——走进OOP</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#如何封装成类&quot; id=&quot;markdown-toc-如何封装成类&quot;&gt;如何封装成类&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#类的继承&quot; id=&quot;markdown-toc-类的继承&quot;&gt;类的继承&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#增加持久化&quot; id=&quot;markdown-toc-增加持久化&quot;&gt;增加持久化&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;上节已经提到，使用字典来保存人员信息会导致没有一个集中的地方来存放记录处理的逻辑，这对于小的程序是可以的，但是如果你需要对姓名和涨薪方式稍作改变，可能要在很多地方做改变，项目变大时这绝对是一个体力活。因此我们需要将这些人员的记录和相关的操作方法封装成一个类。&lt;/p&gt;
+
+&lt;h3 id=&quot;如何封装成类&quot;&gt;如何封装成类&lt;/h3&gt;
+&lt;pre&gt;
+class Person:
+    def __init__(self,name,age,pay=0,job=None):
+        self.name=name
+        self.pay=pay
+        self.age=age
+        self.job=job
+    #添加类的方法
+    def lastName(self):
+        return self.name.split()[-1]
+    def giveRaise(self,percent):
+        self.pay*=(1.0+percent)
+if __name__=='__main__':
+    bob=Person('Bob Smith',42,30000,'software')
+    sue=Person('Sue Jones',45,40000,'hardware')
+    print(bob.name.split()[-1])
+    sue.pay*=1.10
+    print(sue.pay)
+    people=[bob,sue]
+    for person in people:
+        print(person.name,person.pay)
+    x=[rec.name for rec in people if rec.age&amp;gt;=45]
+    print(x)
+
+    print(sue.lastName())
+    bob.giveRaise(.20)
+    print(bob.pay)
+
+&lt;/pre&gt;
+
+&lt;h3 id=&quot;类的继承&quot;&gt;类的继承&lt;/h3&gt;
+&lt;p&gt;我们也可以通过根据需要继承该类并重写该类中的方法&lt;/p&gt;
+&lt;pre&gt;
+
+from person_start import  Person
+class Manager(Person):
+
+    #重写了 giveRaise方法
+    def giveRaise(self,percent,bonus=0.1):
+        self.pay*=(1.0+percent+bonus)
+
+if __name__=='__main__':
+    tom=Manager(name='Tom Doe',age=50,pay=30000)
+
+    bob=Person('Bob Smith',42,10000,'software')
+    sue=Person('Sue Jones',45,20000,'hardware')
+    print(tom.lastName())
+    #tom.giveRaise(.20)
+    print(tom.pay)
+
+    people=[bob,sue,tom]
+    #多态的实现  以下代码实现了调用giveRaise方法时取决于被处理的对象 obj
+
+    for obj in people:
+        obj.giveRaise(.10)
+    for obj in people:
+        print(obj.lastName(),'=&amp;gt;',obj.pay)
+&lt;/pre&gt;
+
+&lt;h3 id=&quot;增加持久化&quot;&gt;增加持久化&lt;/h3&gt;
+
+&lt;p&gt;1、 保存至文件&lt;/p&gt;
+
+&lt;pre&gt;
+import shelve
+from person_start import Person
+from manager import Manager
+
+bob=Person('Bob Smith',42,30000,'soft ware')
+sue=Person('Sue Jones',45,40000,'hardware')
+tom=Manager('Tom Doe',50,50000)
+
+db=shelve.open('class-shelve')
+db['bob']=bob
+db['sue']=sue
+db['tom']=tom
+db.close()
+&lt;/pre&gt;
+
+&lt;p&gt;2、从文件读取&lt;/p&gt;
+
+&lt;pre&gt;
+import  shelve
+db=shelve.open('class-shelve')
+for key in db:
+    print(key,'=&amp;gt;\n',db[key].name,db[key].pay)
+bob=db['bob']
+print(bob.lastName())
+print(db['tom'].lastName())
+&lt;/pre&gt;
+
+&lt;p&gt;注意这里不需要重新导入Person类让shelve获取它的实例或者运行它的方法，当实例存储到shelve或者pickle中时，底层的pickle系统会记录下实例的属性以及足够的信息，以便被读取时自动定位到它的类。&lt;/p&gt;
+
+&lt;p&gt;3、 进行更新操作&lt;/p&gt;
+&lt;pre&gt;
+import  shelve
+db=shelve.open('class-shelve')
+sue=db['sue']
+sue.giveRaise(.25)
+db['sue']=sue
+
+tom=db['tom']
+tom.giveRaise(.20)
+db['tom']=tom
+db.close()
+
+
+db=shelve.open('class-shelve')
+for key in db:
+    print(key,&quot;=&amp;gt;\n&quot;,db[key].pay)
+db.close()
+&lt;/pre&gt;
+</description>
+        <pubDate>Sun, 09 Sep 2018 14:30:01 +0800</pubDate>
+        <link>http://localhost:4000/2018/09/09/python-getattr/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/09/09/python-getattr/</guid>
+        
+        <category>Python</category>
+        
+        
+        <category>Python</category>
+        
+      </item>
+    
+      <item>
+        <title>__str__与__dict__,及字符串与dict之间的转换</title>
+        <description>
+&lt;p&gt;当打印一个类的实例化对象的时候 会调用  __str__  方法&lt;br /&gt;
+__dict__   保存了实例化对象的属性&lt;br /&gt;
+字符串转 list，dict等内置对象 使用 eval()方法&lt;br /&gt;
+内置对象转 list、dict等 使用str()方法&lt;/p&gt;
+
+&lt;p&gt;代码测试：&lt;/p&gt;
+&lt;pre&gt;
+class strtest:
+    def __init__(self,name,age):
+        self.name=name
+        self.age=age
+        print(&quot;init: this is only test&quot;)
+
+    def __str__(self):
+        #字典转字符串
+        return str(self.__dict__)
+
+
+if __name__ == &quot;__main__&quot;:
+    st = strtest('zhangsan',18)
+
+    #当打印一个类的实例化对象的时候 会调用  __str__方法
+    print(st)  #{'name': 'zhangsan', 'age': 18}
+    print(st.__dict__)   #{'name': 'zhangsan', 'age': 18}  将实例中的所有属性均打印出来
+
+    #字符串与字典之间的相互转换
+    mystr=&quot;{'name': 'zhangsan', 'age': 18}&quot;
+    mystr1=&quot;['name','zhangsan', 'age',18]&quot;
+    mydict=eval(mystr)
+    print(type(mydict),mydict)
+
+    mylist=eval(mystr1)
+    print(type(mylist),mylist)
+
+&lt;/pre&gt;
+
+</description>
+        <pubDate>Sun, 09 Sep 2018 11:40:01 +0800</pubDate>
+        <link>http://localhost:4000/2018/09/09/python-OOP/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/09/09/python-OOP/</guid>
+        
+        <category>Python</category>
+        
+        
+        <category>Python</category>
+        
+      </item>
+    
+      <item>
+        <title>Python中的数据存储</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#学习目标&quot; id=&quot;markdown-toc-学习目标&quot;&gt;学习目标&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#第一步表示记录&quot; id=&quot;markdown-toc-第一步表示记录&quot;&gt;第一步：表示记录&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#使用list&quot; id=&quot;markdown-toc-使用list&quot;&gt;使用List&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#使用字典&quot; id=&quot;markdown-toc-使用字典&quot;&gt;使用字典&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#第二步执行持久化存储&quot; id=&quot;markdown-toc-第二步执行持久化存储&quot;&gt;第二步：执行持久化存储&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#文件的基本操作&quot; id=&quot;markdown-toc-文件的基本操作&quot;&gt;文件的基本操作&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#打开&quot; id=&quot;markdown-toc-打开&quot;&gt;打开&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#写入&quot; id=&quot;markdown-toc-写入&quot;&gt;写入&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#读取&quot; id=&quot;markdown-toc-读取&quot;&gt;读取&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#关闭&quot; id=&quot;markdown-toc-关闭&quot;&gt;关闭&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#保存人员数据到文件&quot; id=&quot;markdown-toc-保存人员数据到文件&quot;&gt;保存人员数据到文件&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#使用pickle文件&quot; id=&quot;markdown-toc-使用pickle文件&quot;&gt;使用Pickle文件&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#每条记录使用一个pickle文件&quot; id=&quot;markdown-toc-每条记录使用一个pickle文件&quot;&gt;每条记录使用一个pickle文件&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#使用shelves&quot; id=&quot;markdown-toc-使用shelves&quot;&gt;使用shelves&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;学习目标&quot;&gt;学习目标&lt;/h3&gt;
+&lt;p&gt;本次的学习目标是编写一个Python程序来管理员工信息，教程中的内容参考自书籍 Python programming 第四版，它在第一章采用这种“提出解决方案，然后再推翻，再提出…，直到找到合理的解决方案为止”的学习方法，令我感受颇深，所以很是推荐这本书，希望对大家也会有所帮助。&lt;/p&gt;
+&lt;h3 id=&quot;第一步表示记录&quot;&gt;第一步：表示记录&lt;/h3&gt;
+&lt;h4 id=&quot;使用list&quot;&gt;使用List&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;'''
+
+bob=['Bob Smith',42,30000,'software']
+sue=['Sue Jones',45,40000,'hardware']
+print(bob[0],sue[2])
+print(bob[0].split()[-1]) #输出bob的姓
+
+'''
+split()：拆分字符串。通过指定分隔符对字符串进行切片，并返回分割后的字符串列表（list）
+语法：str.split(str=&quot;&quot;,num=string.count(str))[n]
+参数说明：
+str：表示为分隔符，默认为空格，但是不能为空('')。若字符串中没有分隔符，则把整个字符串作为列表的一个元素
+num：表示分割次数。如果存在参数num，则仅分隔成 num+1 个子字符串，并且每一个子字符串可以赋给新的变量
+[n]：   表示选取第n个分片
+
+注意：当使用空格作为分隔符时，对于中间为空的项会自动忽略
+'''
+
+people=[bob,sue]
+for person in people:
+    print(person)
+print(people[1][0])
+for person in people:
+    print(person[2])
+#收集薪酬信息
+#方法一  列表解析
+pays1=[person[2] for person in people]
+print(pays1)
+#方法二 map()
+'''
+语法：map(function, iterable, ...)
+参数详情 
+function:将集合的每个元素当做参数传递给该函数
+iterable: 可迭代的集合，列表，元组等
+
+返回值： map()的返回值是一个map()对象  可以使用list(),set()函数来创建列表或者集合
+'''
+pays2=map((lambda x:x[2]),people)
+print(pays2)
+print(list(pays2))
+
+#像人员数据库中添加数据
+people.append(['Tom',50,0,None])
+print(len(people))
+print(people[-1][0])
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;由上可见，使用列表是可以实现数据存储的功能，但是这样就存在一个问题，我们必须记住每个位置的含义，比如第一个位置是姓名，第二个位置是薪酬。这样就非常麻烦。想要解决这个问题，最好的方法是把字段名和字段值关联起来，该如何实现呢？ 我们可以先试着使用Python的内置。&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;NAME,AGE,PAY=range(3)
+print(bob[NAME])
+print(PAY,bob[PAY])
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;这样貌似是解决了问题，当我们改变记录的结构时，比如 再加一个性别，性别如果放在第二个位置，那就都需要改变，维护的成本太高了，明显是不可行的，我们再试着使用元祖的列表来解决这个问题。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bob=[['name','Bob Smith'],['age',42],['pay',10000]]
+sue=[['name','Sue Jones'],['age',45],['pay',20000]]
+people=[bob,sue]
+for person in people:
+    print(person[0][1],person[2][1])
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;这样并没有解决问题  我们仍然需要通过位置来获取信息,实际上只是仅仅增加了一层额外的位置索引。为了准确的获取我们想要的信息，我们或许可以再通过遍历所有人员信息，进行判断得到自己想要的。&lt;br /&gt;
+比如如果想要或得所有的姓名，我们可以在循环中进行判断：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;for person in people:
+    for (name,value) in person:
+        if name=='name':
+            print(value)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;为了增加代码的可用性，我们可以将这个循环封装成一个方法&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#为了增加代码的可用性  我们可以将其封装成一个函数
+def field(record,label):
+    for(fname,fvalue) in record:
+        if fname==label:
+            return fvalue
+print(field(bob,'name'))
+print(field(sue,'pay'))
+
+#打印所有的年龄
+for rec in people:
+    print(field(rec,'age'))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;如果已经对Python有了一定的了解，你会知道上述的实现都可以内置的字典对象实现&lt;/p&gt;
+&lt;h4 id=&quot;使用字典&quot;&gt;使用字典&lt;/h4&gt;
+&lt;p&gt;存储数据&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bob={'name':'Bob Smith','age':42,'pay':30000,'job':'dev'}
+sue={'name':'Sue Jones','age':45,'pay':40000,'job':'hdw'}
+print(bob['name'],sue['pay'])
+print(bob['name'].split()[-1])
+sue['pay']*=1.10
+print(sue['pay'])
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;进行遍历&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;people=[bob,sue]
+for person in people:
+    print(person['name'],person['pay'],sep=',')
+#使用迭代工具进行遍历
+names=[person['name'] for person in people]
+print(names)
+names1=list(map(lambda x:x['name'],people))
+print(names1)
+
+#汇总薪水
+sum=sum(person['pay'] for person in people)
+print(sum)
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;比较给力的是 使用列表竟然能够实现SQL查询语句相同的效果&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;print([rec['name'] for rec in people if rec['age']&amp;gt;=45])
+print([rec['age']**2 if rec['age']&amp;gt;=45 else rec['age'] for rec in people])
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;进一步改进，如果想直接获得bob的薪资该怎么办呢？  使用字典的字典（嵌套）&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;db={}
+db['bob']=bob
+db['sue']=sue
+print(db['bob']['pay'])
+
+#逐条的访问数据库
+for key in db:
+    print(key,'=&amp;gt;',db[key]['name'])
+#新增一条记录
+db['Tom']=dict(name='Tom',age=50,job=None,pay=0)
+print(db['Tom'])
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p style=&quot;color:red&quot;&gt;以上的存储我们便完成了Python的数据存储工作，但是新的问题就来了，当我们退出Python之后这些数据就会烟消云散，因此我们接下来需要做的就是持久化操作
+&lt;/p&gt;
+&lt;h3 id=&quot;第二步执行持久化存储&quot;&gt;第二步：执行持久化存储&lt;/h3&gt;
+&lt;p&gt;若需要人员信息持久化，我们需要将其保存到某种类型的文件中，所以我们先回顾复习下文件的基本操作。&lt;/p&gt;
+&lt;h4 id=&quot;文件的基本操作&quot;&gt;文件的基本操作&lt;/h4&gt;
+&lt;h5 id=&quot;打开&quot;&gt;打开&lt;/h5&gt;
+&lt;p&gt;open(para1,para2,para3)&lt;br /&gt;
+    para1: 表示打开文件的名称&lt;br /&gt;
+    para2：表示文件的打开方式&lt;br /&gt;
+          w 以写的方式打开&lt;br /&gt;
+           r 以 读的方式打开&lt;br /&gt;
+            a 表示在文件尾部追加内容而打开文件&lt;br /&gt;
+            b 可以进行二进制数据处理&lt;br /&gt;
+            + 表示同时为输入和输出打开文件&lt;br /&gt;
+       para3:控制输出缓存  传入0 表示 输出无缓存&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dbfilename='people-file'
+dbfile=open(dbfilebname,'+')
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;写入&quot;&gt;写入&lt;/h5&gt;
+&lt;p&gt;dbfile.write(asString) 写入字节字符串到文件&lt;br /&gt;
+dbfile.write(aList) 把列表中的所有字符串写入文件&lt;br /&gt;
+print(key,file=dbfile) 等价于 dbfile.write(key+’\n’)&lt;/p&gt;
+&lt;h5 id=&quot;读取&quot;&gt;读取&lt;/h5&gt;
+&lt;p&gt;dbfile.read() 整个文件读取到一个字符串&lt;br /&gt;
+dbfile.readline() 读取下一行（包括行末标识符）到一个一个字符串&lt;br /&gt;
+dbfile.readlines() 读取整个文件到一个字符串列表&lt;br /&gt;
+使用文件迭代器进行读取（推荐）&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;for line in open('data'):
+	print(line,end=' ')
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;关闭&quot;&gt;关闭&lt;/h5&gt;
+&lt;p&gt;dbfile.close() 手动关闭文件
+dbfile.flush() 把输出缓冲区刷新到硬盘，但是不关闭文件&lt;/p&gt;
+
+&lt;p&gt;注意！！！&lt;br /&gt;
+        从文件读取的数据回到脚本时是一个字符串。所以字符串如果不是你所需要的，就得将其转换为其他类型的Python对象。  &lt;br /&gt;
+        同样与print语句不同的是，当你把数据写入文件时，Python 不会自动把对象转换为字符串–你必须传递一个已格式化的字符串&lt;/p&gt;
+
+&lt;h4 id=&quot;保存人员数据到文件&quot;&gt;保存人员数据到文件&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dbfilename='people-file'
+ENDDB='enddb.'
+ENDREC='endrec.'
+RECSEP='=&amp;gt;'
+def storeDbbase(db,dfilename=dbfilename):
+    dbfile=open(dbfilename,'w')
+    for key in db:
+        print(key,file=dbfile)#写入到文件
+        for (name,value) in db[key].items():
+            print(name+RECSEP+repr(value),file=dbfile)#repr返回对象的字符串形式，此处为什么要这样设置呢？
+        '''
+        注意！！！
+        从文件读取的数据回到脚本时是一个字符串。所以字符串如果不是你所需要的，就得将其转换为其他类型的Python对象。
+        同样与print语句不同的是，当你把数据写入文件时，Python 不会自动把对象转换为字符串--你必须传递一个已格式化的字符串
+        '''
+        print(ENDREC,file=dbfile)
+    print(ENDDB,file=dbfile)
+    dbfile.close()
+
+def loadDbase(dbfile=dbfilename):
+    dbfile=open(dbfilename)
+    import sys
+    sys.stdin=dbfile  #将input() 的输入由终端转为 dbfile,即由文件输入
+    db={}
+    key=input()
+    while key!=ENDDB:
+        rec={}
+        field=input()
+        while field != ENDREC:
+            name,value=field.split(RECSEP) #进行分割
+            rec[name]=eval(value)  #eval()函数十分强大，官方demo解释为：将字符串str当成有效的表达式来求值并返回计算结果。
+            field=input()
+        db[key]=rec
+        key=input()
+    return db
+
+if __name__=='__main__':
+    storeDbbase(db)
+    mydb=loadDbase()
+    print(mydb)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p style=&quot;color:red&quot;&gt;以上便已经实现了数据的持久化，但是存在以下几个问题：&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;即便是为了获取一条记录也需要从文件中读取整个数据库，而且每一次更新后也需要把所有数据重新写入文件。&lt;/li&gt;
+  &lt;li&gt;采用以上文本文件的方式鉴定写入文件的数据分隔符不会出现在存储的数据中。如果分隔符=&amp;gt;恰好出现在数据中，这种结构就会失败。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;b&gt;因此，我们需要一种通用的工具，可以直接把Python中的数据转化为可以保存在文件中的格式，这个工具就是 pickle文件&lt;/b&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;使用pickle文件&quot;&gt;使用Pickle文件&lt;/h3&gt;
+&lt;p&gt;何为pickle?
+任意Python对象与字节串之间的序列化&lt;/p&gt;
+
+&lt;p&gt;Pickle模块是如何工作的？&lt;br /&gt;
+pickle模块将内存中的Python对象转化为序列化的字节流，这是一种可以写入任何一种类似文件对象的字符串。&lt;br /&gt;
+pickle模块也可以根据序列化的字节流重新构建原来内存中的对象（转换成原来那个对象）&lt;/p&gt;
+
+&lt;p&gt;因此，使用pickle使得我们只需要一个步骤就可以存储和获取Python对象，不用手动的存储和解析对象&lt;/p&gt;
+
+&lt;p&gt;使用Pickle存储人员信息与解析:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;from save import db
+import pickle
+dbfile=open('people-pickle','wb')
+pickle.dump(db,dbfile)
+dbfile.close()
+
+dbfile=open('people-pickle','rb')
+db=pickle.load(dbfile)
+for key in db:
+    print(key,&quot;=&amp;gt;\n&quot;,db[key])
+print(db['sue']['name'])
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;b style=&quot;color:red&quot;&gt;注意！&lt;/b&gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;当记录在内存中被修改后是将整个数据库重新写入文件，所以pickle在这方面是与手动的格式化文件的方式是一样的。当处理非常大的数据库时，会变慢。接下来会讨论这个问题。&lt;/li&gt;
+  &lt;li&gt;在Python3中 所有协议都是使用bytes对象来表示pickle数据，因此，需要使用位二进制模式来打开所有的pickle文件&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;每条记录使用一个pickle文件&quot;&gt;每条记录使用一个pickle文件&lt;/h3&gt;
+&lt;p&gt;前面我们提到，当一条记录发生改变时，我们需要将所有的数据都重新保存到数据库，这会使得数据库变慢，那如果我们将每一套数据存放到一个文件中，当数据改变时，更新相应的文件而不是整个数据库是不是会节省很多时间呢？&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;from save import bob,sue,tom
+import  pickle
+for(key,record) in [('bob',bob),('tom',tom),('sue',sue)]:
+    recfile=open(key+'.pkl','wb')
+    pickle.dump(record,recfile)
+    recfile.close()
+
+
+#读取所有的人员信息
+import  pickle,glob
+for filename in glob.glob('*.pkl'):
+    recfile=open(filename,'rb')
+    record=pickle.load(recfile)
+    print(filename,&quot;=&amp;gt;\n&quot;,record)
+
+#若想获得某个人员信息，直接读取其文件
+suefile=open('sue.pkl','rb')
+sue=pickle.load(suefile)
+print(sue['name'])
+suefile.close()
+sue['pay']*=1.5
+suefile=open('sue.pkl','wb')
+pickle.dump(sue,suefile)
+suefile.close()
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3 id=&quot;使用shelves&quot;&gt;使用shelves&lt;/h3&gt;
+&lt;p&gt;上述解决了文件存储时的效率问题，但是当你的文件很多的时候，管理起来很不方便，因此Python提供了一种更高层次的东西：Shelves&lt;br /&gt;
+Shelves的工作原理：&lt;br /&gt;
+shelves 自动将对象pickle进和pickle出键访问文件系统。它像必须打开着的字典，在程序退出时进行持久化。因为它使用键访问被存储记录，所以不需要手动为每条记录管理一个普通文件，shelves自动分隔存储记录，并且只获得和更新被访问和修改的记录，通过这种方式，shelves使用起来很像一堆只存储一条记录的pickle文件，但是更容易编写代码&lt;/p&gt;
+
+&lt;p&gt;存储到shelves以永久保存&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;from  save import bob,sue
+import shelve
+db=shelve.open('people-shelve')
+db['bob']=bob
+db['sue']=sue
+db.close()
+#该脚本在当前目录下以people-shelve为前缀创建一个或者多个文件，在Win
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;重新打开并读取&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;db=shelve.open('people-shelve')
+for key in db:
+    print(key,'=&amp;gt;\n',db[key])
+print(db['sue']['name'])
+db.close()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p style=&quot;color:red&quot;&gt;上述方式实现了数据的存储，但是如果我想给员工加薪%10，管理者加薪%20，该如何实习呢？需要为每个操作写相应的代码，这会使得造成代码冗余，接下来就让我们走进OOP，来改善这种情况！&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 09 Sep 2018 11:40:01 +0800</pubDate>
+        <link>http://localhost:4000/2018/09/09/python-file-store/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/09/09/python-file-store/</guid>
+        
+        <category>Python</category>
+        
+        
+        <category>Python</category>
+        
+      </item>
+    
+      <item>
+        <title>解决Ubuntu打开Windows下TXT文件乱码的问题</title>
+        <description>
+&lt;p&gt;Ubuntu中打开TXT文件会产生乱码问题，记录以下自己的解决方案：&lt;br /&gt;
+在Ubuntu上安装notepad++，打开所要浏览的文件，点击编码（encoding）-&amp;gt;interpret as -&amp;gt;GBK即可&lt;/p&gt;
+</description>
+        <pubDate>Wed, 29 Aug 2018 11:40:01 +0800</pubDate>
+        <link>http://localhost:4000/2018/08/29/ubuntu-utf8/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/08/29/ubuntu-utf8/</guid>
+        
+        <category>Ubuntu</category>
+        
+        
+        <category>随笔杂谈</category>
+        
+      </item>
     
       <item>
         <title>Python 中的map()</title>
@@ -262,7 +952,13 @@ print(list(result))
       &lt;li&gt;&lt;a href=&quot;#6示例&quot; id=&quot;markdown-toc-6示例&quot;&gt;6、示例&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#三bitbucket&quot; id=&quot;markdown-toc-三bitbucket&quot;&gt;三、Bitbucket&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#三bitbucket&quot; id=&quot;markdown-toc-三bitbucket&quot;&gt;三、Bitbucket&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#一-bitbucket基本操作&quot; id=&quot;markdown-toc-一-bitbucket基本操作&quot;&gt;（一） BitBucket基本操作&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#二初识分支&quot; id=&quot;markdown-toc-二初识分支&quot;&gt;（二）初识分支&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#三-学会如何与队友进行协作&quot; id=&quot;markdown-toc-三-学会如何与队友进行协作&quot;&gt;（三） 学会如何与队友进行协作&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#四深入的了解分支&quot; id=&quot;markdown-toc-四深入的了解分支&quot;&gt;（四）深入的了解分支&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#四github&quot; id=&quot;markdown-toc-四github&quot;&gt;四、Github&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -380,6 +1076,82 @@ git config user.email &quot;someone@someplace.com&quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;三bitbucket&quot;&gt;三、Bitbucket&lt;/h3&gt;
+&lt;h4 id=&quot;一-bitbucket基本操作&quot;&gt;（一） BitBucket基本操作&lt;/h4&gt;
+&lt;p&gt;1、发布本地历史可以通过推送分支到其他仓库，也可拉取别人的分支到本地仓库，看看其做了哪些工作&lt;br /&gt;
+在bitbucket 创建新的文件&lt;br /&gt;
+（1）选择分支&lt;br /&gt;
+（2）点击 source&lt;br /&gt;
+（3）add file&lt;br /&gt;
+（4）点击commit 进行提交&lt;br /&gt;
+（5）点击左侧 commits查看自己所有的提交&lt;br /&gt;
+（6）拉取改变到本地仓库，与git push 正好相反，使用 git pull –all&lt;/p&gt;
+
+&lt;h4 id=&quot;二初识分支&quot;&gt;（二）初识分支&lt;/h4&gt;
+
+&lt;p&gt;使用 git 分支来合并文件&lt;br /&gt;
+分支是团队合作最有效的工具 &lt;br /&gt;
+你可以从自己的分支机构处理自己的项目，从bitbucket上获取更新，然后准备就绪后将所有的工作合并到主分支 &lt;br /&gt;
+在你计划做一些修改而不准备提交的地方创建一个分支，当你准备将这些更改和计划让别人知道时，你可以提交这些更改到bitbucket库，然后删除不再需要的分支&lt;/p&gt;
+
+&lt;p&gt;比较重要的理解是，分支仅仅是提交的指针，当你创建一个分支的时候，git只是需要创建一个指针，不需要创建一系列的文件和文件夹&lt;br /&gt;
+分支工作原理&lt;br /&gt;
+创建分之前&lt;br /&gt;
+创建分支&lt;br /&gt;
+切换到新的分支&lt;br /&gt;
+在新建的分支上进行工作&lt;br /&gt;
+提交更改&lt;br /&gt;
+合并分支&lt;/p&gt;
+
+&lt;p&gt;提交这些更改到BitBucket上&lt;/p&gt;
+&lt;h4 id=&quot;三-学会如何与队友进行协作&quot;&gt;（三） 学会如何与队友进行协作&lt;/h4&gt;
+&lt;p&gt;当你在其他用户的公共 BitBucket仓库工作时，通常你只有读而无写的权限，那么我们就引入了forKing的概念，它是如何工作的呢？&lt;br /&gt;
+（1） 将仓库分叉以复制到你的账户&lt;br /&gt;
+（2）从自己的账户克隆分叉的仓库到自己的操作系统&lt;br /&gt;
+（3）在本地仓库进行更改&lt;br /&gt;
+（4）推送这些改变到你的BitBucket上的分叉存储库&lt;br /&gt;
+（5）从您分叉的原始存储库创建拉取请求，以添加你所做的更改&lt;br /&gt;
+（6）等待仓库的拥有着接受或拒绝你的请求&lt;br /&gt;
+注意：&lt;br /&gt;
+如果仓库的owner接受你的请求，BitBucket会合并你的代码更改到原始仓库。但需要注意的是即使仓库所有者给了你公共仓库的写权限，也建议你使用佛fork和pull请求&lt;br /&gt;
+示例：&lt;br /&gt;
+该列子中你将fork一个公共仓库，它属于tutorials,并且对其做出更改：&lt;br /&gt;
+步骤如下：&lt;br /&gt;
+（1）在浏览器打开 &lt;a href=&quot;tutorials/tutorials.git.bitbucket.org&quot;&gt;tutorials/tutorials.git.bitbucket.org&lt;/a&gt; &lt;br /&gt;
+（2）打开该仓库，点击 + ，点击 fork this repository&lt;br /&gt;
+（3）更改其名称（myteamquoes），点击  fork repository&lt;br /&gt;
+（4）clone 你fork的仓库到本地，并且对其做出一些更改，将更改推送到BitBucket上&lt;br /&gt;
+如下：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; 在forked repo中 -&amp;gt; + -&amp;gt;clone,复制其 URL
+ git clone URL 
+ 更改 editme.html 文件，这个文件中主要是写了一些励志名言
+ git add editme.html
+ git commit -m &quot;make a change!!&quot;
+ git push origin master
+这样便推送自己的更改到远程仓库上去了
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;（5）请求把自己的更改添加到原始仓库&lt;br /&gt;
+！！！care，可能出现这样一种情况，在你clone repo到本地 进行更改的时候，已有队友向该才哭中提交过更改，你的仓库就不是最新的版本了，这种情况下你需要检查并且决定是否需要相应的调整你的fork,按照以下步骤进行：&lt;br /&gt;
+ a. 登录 BitBucket 并且进入 myteamquotes(forked仓库)&lt;br /&gt;
+ b. 在最左侧点击 + -&amp;gt; compare branches or tags-&amp;gt;compare
+ c. 点击 diff 可以查看做了哪些改变
+ d.创建一个 pull 请求 点击左侧 pull requests-&amp;gt; create a pull requests ,填写相应的信息然后确认
+ 注意：&lt;br /&gt;
+ pull之后你无法删除它，如果你删除该 fork 接收着吧只能拒绝该请求。&lt;/p&gt;
+
+&lt;h4 id=&quot;四深入的了解分支&quot;&gt;（四）深入的了解分支&lt;/h4&gt;
+&lt;p&gt;前面的章节我们已经了解到了分支的工作流程及其原理，接下来我们将更深入的了解分支，主要包括以下的内容：&lt;br /&gt;
+   （1）创建一个分支并且推送到 remote
+   （2）拉取分支到本地并且切换到该分支 git fetch &amp;amp;&amp;amp; check out test-2
+   （3）查看分支 git branch
+   （4）合并分支  git merge master test-2，*** 非常重要的是  若你想要合并 master 到test-2,必须check out 到test-2
+   （5）删除分支并且拉取主分支到本地工作分支 git branch -d test-1&lt;/p&gt;
+
+&lt;p&gt;为何要删除分支
+	为了保持本地的环境干净&lt;/p&gt;
+
+&lt;p&gt;为何pull 主分支，并且把它merge到 test-2
+  在您工作的过程中，您的另一个团队成员可能也在工作，最好是不是将更改提取到您的工作分支，以防止拉取请求中合并冲突&lt;/p&gt;
+
 &lt;h3 id=&quot;四github&quot;&gt;四、Github&lt;/h3&gt;
 </description>
         <pubDate>Sat, 11 Aug 2018 18:37:01 +0800</pubDate>
@@ -390,446 +1162,6 @@ git config user.email &quot;someone@someplace.com&quot;
         
         
         <category>Git</category>
-        
-      </item>
-    
-      <item>
-        <title>Windows下Maven的配置</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#1下载&quot; id=&quot;markdown-toc-1下载&quot;&gt;1、下载：&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#2配置环境变量&quot; id=&quot;markdown-toc-2配置环境变量&quot;&gt;2、配置环境变量&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#3更改settingxml文件&quot; id=&quot;markdown-toc-3更改settingxml文件&quot;&gt;3、更改setting.xml文件&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#4在eclipse中配置加载settingxml文件&quot; id=&quot;markdown-toc-4在eclipse中配置加载settingxml文件&quot;&gt;4、在eclipse中配置加载setting.xml文件&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;1下载&quot;&gt;1、下载：&lt;/h4&gt;
-&lt;p&gt;官网：&lt;a href=&quot;https://maven.apache.org/download.cgi&quot;&gt;https://maven.apache.org/download.cgi&lt;/a&gt; &lt;br /&gt;
-网盘链接：&lt;a href=&quot;https://pan.baidu.com/s/1EfOfU5IhewEGaxE0RnNHIQ&quot;&gt;https://pan.baidu.com/s/1EfOfU5IhewEGaxE0RnNHIQ&lt;/a&gt;  密码：sfm3&lt;/p&gt;
-
-&lt;h4 id=&quot;2配置环境变量&quot;&gt;2、配置环境变量&lt;/h4&gt;
-
-&lt;p&gt;系统环境变量里，添加MAVEN_HOME(或M2_HOME)，其值为D:\maven，然后PATH环境变量最后附加上”;%MAVEN_HOME%\bin”&lt;/p&gt;
-
-&lt;p&gt;检测方法：&lt;/p&gt;
-
-&lt;p&gt;a) 重新进入命令行(DOS窗口)模式，输入 echo %MAVEN_HOME% 如果能显示 D:\maven 说明环境变量起作用了&lt;/p&gt;
-
-&lt;p&gt;b) 输入 mvn -version，正常情况下会显示maven及jdk的版本号，（前提：jdk环境必须先安装好，否则后面无法正常编译项目）。&lt;/p&gt;
-
-&lt;h4 id=&quot;3更改settingxml文件&quot;&gt;3、更改setting.xml文件&lt;/h4&gt;
-&lt;p&gt;位于 D:\maven\conf（复制网盘中的setting.xml文件替换即可）&lt;br /&gt;
-主要更改了以下两个位置:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &amp;lt;mirror&amp;gt;
-      &amp;lt;id&amp;gt;alimaven&amp;lt;/id&amp;gt;
-      &amp;lt;name&amp;gt;aliyun maven&amp;lt;/name&amp;gt;
-      &amp;lt;url&amp;gt;http://maven.aliyun.com/nexus/content/groups/public/&amp;lt;/url&amp;gt;
-      &amp;lt;mirrorOf&amp;gt;central&amp;lt;/mirrorOf&amp;gt;        
-   &amp;lt;/mirror&amp;gt;
-
-
-&amp;lt;localRepository&amp;gt;D:/maven_rep&amp;lt;/localRepository&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h4 id=&quot;4在eclipse中配置加载settingxml文件&quot;&gt;4、在eclipse中配置加载setting.xml文件&lt;/h4&gt;
-&lt;p&gt;preferences -&amp;gt; User Settings -&amp;gt;Browse User Setting-&amp;gt;(setting.xml文件所在的位置)-&amp;gt;apply&lt;/p&gt;
-
-</description>
-        <pubDate>Thu, 09 Aug 2018 18:37:01 +0800</pubDate>
-        <link>http://localhost:4000/2018/08/09/maven-file-read/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/08/09/maven-file-read/</guid>
-        
-        <category>maven</category>
-        
-        
-        <category>Java学习</category>
-        
-      </item>
-    
-      <item>
-        <title>更改hosts文件使用IPV6访问外网</title>
-        <description>
-&lt;p&gt;找到hosts文件，将其覆盖&lt;br /&gt;
-Windows：C:\Windows\System32\drivers\etc&lt;br /&gt;
-Ubuntu： /etc/&lt;/p&gt;
-
-&lt;p&gt;hosts文件下载：
-链接: &lt;a href=&quot;https://pan.baidu.com/s/1K3Nj1Bhhez7Jl49Er9kXSw&quot;&gt;https://pan.baidu.com/s/1K3Nj1Bhhez7Jl49Er9kXSw&lt;/a&gt;  &lt;br /&gt;
-密码: mrtr&lt;/p&gt;
-
-&lt;p&gt;友情提示：建议备份原hosts文件&lt;/p&gt;
-</description>
-        <pubDate>Thu, 09 Aug 2018 16:37:01 +0800</pubDate>
-        <link>http://localhost:4000/2018/08/09/IPV6-deploy/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/08/09/IPV6-deploy/</guid>
-        
-        <category>IP</category>
-        
-        
-        <category>随笔杂谈</category>
-        
-      </item>
-    
-      <item>
-        <title>Java获取本机IP</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#获取本地ip地址的方法如下&quot; id=&quot;markdown-toc-获取本地ip地址的方法如下&quot;&gt;获取本地IP地址的方法如下：&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;获取本地ip地址的方法如下&quot;&gt;获取本地IP地址的方法如下：&lt;/h4&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public class TestIp {
-	public static void main(String[] args) throws UnknownHostException {
-		 InetAddress addr = InetAddress.getLocalHost();
-	      System.out.println(&quot;Local HostAddress: &quot;+addr.getHostAddress());
-	      String hostname = addr.getHostName();
-	      System.out.println(&quot;Local host name: &quot;+hostname);
-	}
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-</description>
-        <pubDate>Thu, 09 Aug 2018 14:39:01 +0800</pubDate>
-        <link>http://localhost:4000/2018/08/09/java-ip-localhost/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/08/09/java-ip-localhost/</guid>
-        
-        <category>java</category>
-        
-        
-        <category>Java学习</category>
-        
-      </item>
-    
-      <item>
-        <title>Maven项目资源文件位置及其读取方法</title>
-        <description>
-&lt;p&gt;###Maven项目资源文件位置及其读取方法
-将文件放在 src/main/resource/文件下:&lt;br /&gt;
-&lt;img src=&quot;/styles/images/2018-08-09/maven.JPG&quot; alt=&quot;maven&quot; width=&quot;300&quot; /&gt;&lt;br /&gt;
-当项目编译运行过之后，文件会存放在 D:\webservice\AsMaven\target\classes\file下&lt;/p&gt;
-
-&lt;p&gt;可使用以下方法访问:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;System.out.println(&quot;classpath路径： &quot;+FileRead.class.getClassLoader().getResource(&quot;&quot;).getPath());
-System.out.println(&quot;文件所在路径： &quot;+FileRead.class.getClassLoader().getResource(&quot;file/rusult.xml&quot;).getPath());
-System.out.println(&quot;当前类路径： &quot;+FileRead.class.getResource(&quot;&quot;).getPath());
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;输出结果：&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;classpath路径：D:/webservice/AsMaven/target/classes/
-文件所在路径：D:/webservice/AsMaven/target/classes/D:/webservice/AsMaven/target/classes/file/rusult.xml
-当前类路径：   D:/webservice/AsMaven/target/classes/cn/nwpu/fileread/
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-</description>
-        <pubDate>Thu, 09 Aug 2018 14:37:01 +0800</pubDate>
-        <link>http://localhost:4000/2018/08/09/maven-eclipce-java/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/08/09/maven-eclipce-java/</guid>
-        
-        <category>maven</category>
-        
-        
-        <category>Java学习</category>
-        
-      </item>
-    
-      <item>
-        <title>Day02POJ3299-Humidex</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#humidex&quot; id=&quot;markdown-toc-humidex&quot;&gt;Humidex&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#题目描述&quot; id=&quot;markdown-toc-题目描述&quot;&gt;题目描述&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;humidex&quot;&gt;&lt;a href=&quot;http://poj.org/problem?id=3299&quot;&gt;Humidex&lt;/a&gt;&lt;/h3&gt;
-&lt;h4 id=&quot;题目描述&quot;&gt;题目描述&lt;/h4&gt;
-&lt;p&gt;     Ancient Roman empire had a strong government system with various departments, including a secret service department. Important documents were sent between provinces and the capital in encrypted form to prevent eavesdropping. The most popular ciphers in those times were so called substitution cipher and permutation cipher. 
-Substitution cipher changes all occurrences of each letter to some other letter. Substitutes for all letters must be different. For some letters substitute letter may coincide with the original letter. For example, applying substitution cipher that changes all letters from ‘A’ to ‘Y’ to the next ones in the alphabet, and changes ‘Z’ to ‘A’, to the message “VICTORIOUS” one gets the message “WJDUPSJPVT”. 
-Permutation cipher applies some permutation to the letters of the message. For example, applying the permutation &amp;lt;2, 1, 5, 4, 3, 7, 6, 10, 9, 8&amp;gt; to the message “VICTORIOUS” one gets the message “IVOTCIRSUO”. 
-It was quickly noticed that being applied separately, both substitution cipher and permutation cipher were rather weak. But when being combined, they were strong enough for those times. Thus, the most important messages were first encrypted using substitution cipher, and then the result was encrypted using permutation cipher. Encrypting the message “VICTORIOUS” with the combination of the ciphers described above one gets the message “JWPUDJSTVP”. 
-Archeologists have recently found the message engraved on a stone plate. At the first glance it seemed completely meaningless, so it was suggested that the message was encrypted with some substitution and permutation ciphers. They have conjectured the possible text of the original message that was encrypted, and now they want to check their conjecture. They need a computer program to do it, so you have to write one.&lt;/p&gt;
-
-&lt;p&gt;&lt;b&gt;Input&lt;/b&gt;&lt;/p&gt;
-
-&lt;p&gt;Input contains two lines. The first line contains the message engraved on the plate. Before encrypting, all spaces and punctuation marks were removed, so the encrypted message contains only capital letters of the English alphabet. The second line contains the original message that is conjectured to be encrypted in the message on the first line. It also contains only capital letters of the English alphabet. 
-The lengths of both lines of the input are equal and do not exceed 100.&lt;/p&gt;
-
-&lt;p&gt;&lt;b&gt;Output&lt;/b&gt;&lt;/p&gt;
-
-&lt;p&gt;Output “YES” if the message on the first line of the input file could be the result of encrypting the message on the second line, or “NO” in the other case.
-生词：&lt;br /&gt;
-in encrypted 加密的
-eavesdropping 窃听
-ciphers 密码&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include&amp;lt;iostream&amp;gt;
-#include&amp;lt;cmath&amp;gt;
-#include&amp;lt;iomanip&amp;gt;
-using namespace std;
-
-
-/*
-比较坑的是这道题的输入是  可以输入 T H D 中的任意两个
-*/
-int main(){
-	char ch1,ch2;
-	double T,D,H;
-	double i,exp,h,e;
-	while(cin&amp;gt;&amp;gt;ch1){
-		if(ch1=='E'){
-			break;
-		}else{
-			switch(ch1){
-				case'T':
-					cin&amp;gt;&amp;gt;T;
-					cin&amp;gt;&amp;gt;ch2;
-					switch(ch2){
-						case'D':
-							cin&amp;gt;&amp;gt;D;
-							i=5417.7530*((1/273.16)-(1/(D+273.16)));
-							exp=pow(2.718281828,i);
-							e=6.11*exp;
-							h=(0.5555)*(e-10.0);
-							H=T+h;	
-							break;
-						case'H':
-							cin&amp;gt;&amp;gt;H;
-							h=H-T;
-							e=h/0.5555+10.0;
-							exp=e/6.11;
-							i=log(exp);
-							D=1/(1/273.16-i/5417.7530)-273.16;
-							break;
-									
-					}
-					break;
-				case'H':
-					cin&amp;gt;&amp;gt;H;
-					cin&amp;gt;&amp;gt;ch2;
-					switch(ch2){
-						case'T':
-							cin&amp;gt;&amp;gt;T;
-							h=H-T;
-							e=h/0.5555+10.0;
-							exp=e/6.11;
-							i=log(exp);
-							D=1/(1/273.16-i/5417.7530)-273.16;
-							break;	
-						case'D':
-							cin&amp;gt;&amp;gt;D;
-							i=5417.7530*((1/273.16)-(1/(D+273.16)));
-							exp=pow(2.718281828,i);
-							e=6.11*exp;
-							h=(0.5555)*(e-10.0);
-							T=H-h;
-							break;
-					}
-					break;
-				case'D':
-					cin&amp;gt;&amp;gt;D;
-					cin&amp;gt;&amp;gt;ch2;
-					switch(ch2){
-						case'H':
-							cin&amp;gt;&amp;gt;H;
-							i=5417.7530*((1/273.16)-(1/(D+273.16)));
-							exp=pow(2.718281828,i);
-							e=6.11*exp;
-							h=(0.5555)*(e-10.0);
-							T=H-h;
-							break;
-						case'T':
-							cin&amp;gt;&amp;gt;T;
-							i=5417.7530*((1/273.16)-(1/(D+273.16)));
-							exp=pow(2.718281828,i);
-							e=6.11*exp;
-							h=(0.5555)*(e-10.0);
-							H=T+h;	
-							break;
-					}
-			}
-				
-			cout.setf(ios::fixed);
-			cout.precision(1);
- 			cout&amp;lt;&amp;lt;'T'&amp;lt;&amp;lt;&quot; &quot;&amp;lt;&amp;lt;T&amp;lt;&amp;lt;&quot; &quot;&amp;lt;&amp;lt;'D'&amp;lt;&amp;lt;&quot; &quot;&amp;lt;&amp;lt;D&amp;lt;&amp;lt;&quot; &quot;&amp;lt;&amp;lt;'H'&amp;lt;&amp;lt;&quot; &quot;&amp;lt;&amp;lt;H&amp;lt;&amp;lt;endl;
-		}
-	}
-	
-	return 0;
-}
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-</description>
-        <pubDate>Sat, 04 Aug 2018 14:37:01 +0800</pubDate>
-        <link>http://localhost:4000/2018/08/04/algorithm-day2/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/08/04/algorithm-day2/</guid>
-        
-        <category>Algorithm</category>
-        
-        
-        <category>算法之旅</category>
-        
-      </item>
-    
-      <item>
-        <title>Day01-POJ3299-Humidex</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#humidex&quot; id=&quot;markdown-toc-humidex&quot;&gt;Humidex&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#题目描述&quot; id=&quot;markdown-toc-题目描述&quot;&gt;题目描述&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;humidex&quot;&gt;&lt;a href=&quot;http://poj.org/problem?id=3299&quot;&gt;Humidex&lt;/a&gt;&lt;/h3&gt;
-&lt;h4 id=&quot;题目描述&quot;&gt;题目描述&lt;/h4&gt;
-&lt;p&gt;     The humidex is a measurement used by Canadian meteorologists to reflect the combined effect of heat and humidity. It differs from the heat index used in the United States in using dew point rather than relative humidity.&lt;/p&gt;
-
-&lt;p&gt;When the temperature is 30°C (86°F) and the dew point is 15°C (59°F), the humidex is 34 (note that humidex is a dimensionless number, but that the number indicates an approximate temperature in C). If the temperature remains 30°C and the dew point rises to 25°C (77°F), the humidex rises to 42.3.&lt;/p&gt;
-
-&lt;p&gt;The humidex tends to be higher than the U.S. heat index at equal temperature and relative humidity.&lt;/p&gt;
-
-&lt;p&gt;The current formula for determining the humidex was developed by J.M. Masterton and F.A. Richardson of Canada’s Atmospheric Environment Service in 1979.&lt;/p&gt;
-
-&lt;p&gt;According to the Meteorological Service of Canada, a humidex of at least 40 causes “great discomfort” and above 45 is “dangerous.” When the humidex hits 54, heat stroke is imminent.&lt;/p&gt;
-
-&lt;p&gt;The record humidex in Canada occurred on June 20, 1953, when Windsor, Ontario hit 52.1. (The residents of Windsor would not have known this at the time, since the humidex had yet to be invented.) More recently, the humidex reached 50 on July 14, 1995 in both Windsor and Toronto.&lt;/p&gt;
-
-&lt;p&gt;The humidex formula is as follows:&lt;/p&gt;
-
-&lt;p&gt;humidex = temperature + h&lt;br /&gt;
-h = (0.5555)× (e - 10.0)&lt;br /&gt;
-e = 6.11 × exp [5417.7530 × ((1/273.16) - (1/(dewpoint+273.16)))]&lt;br /&gt;
-where exp(x) is 2.718281828 raised to the exponent x.&lt;br /&gt;
-While humidex is just a number, radio announcers often announce it as if it were the temperature, e.g. “It’s 47 degrees out there … [pause] .. with the humidex,”. Sometimes weather reports give the temperature and dewpoint, or the temperature and humidex, but rarely do they report all three measurements. Write a program that, given any two of the measurements, will calculate the third.&lt;/p&gt;
-
-&lt;p&gt;You may assume that for all inputs, the temperature, dewpoint, and humidex are all between -100°C and 100°C.&lt;/p&gt;
-
-&lt;p&gt;&lt;b&gt;Input&lt;/b&gt;&lt;/p&gt;
-
-&lt;p&gt;Input will consist of a number of lines. Each line except the last will consist of four items separated by spaces: a letter, a number, a second letter, and a second number. Each letter specifies the meaning of the number that follows it, and will be either T, indicating temperature, D, indicating dewpoint, or H, indicating humidex. The last line of input will consist of the single letter E.&lt;/p&gt;
-
-&lt;p&gt;&lt;b&gt;Output&lt;/b&gt;&lt;/p&gt;
-
-&lt;p&gt;For each line of input except the last, produce one line of output. Each line of output should have the form:&lt;br /&gt;
-T number D number H number&lt;br /&gt;
-where the three numbers are replaced with the temperature, dewpoint, and humidex. Each value should be expressed rounded to the nearest tenth of a degree, with exactly one digit after the decimal point. All temperatures are in degrees celsius.&lt;br /&gt;
-Sample Input&lt;/p&gt;
-
-&lt;p&gt;T 30 D 15&lt;br /&gt;
-T 30.0 D 25.0&lt;br /&gt;
-E&lt;br /&gt;
-Sample Output&lt;/p&gt;
-
-&lt;p&gt;T 30.0 D 15.0 H 34.0&lt;br /&gt;
-T 30.0 D 25.0 H 42.3&lt;/p&gt;
-
-&lt;p&gt;生词：&lt;br /&gt;
-humidex 湿度指数&lt;br /&gt;
-measurement 测量&lt;br /&gt;
-meteorologist 气象学家&lt;br /&gt;
-letter  字母&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include&amp;lt;iostream&amp;gt;
-#include&amp;lt;cmath&amp;gt;
-#include&amp;lt;iomanip&amp;gt;
-using namespace std;
-
-
-/*
-比较坑的是这道题的输入是  可以输入 T H D 中的任意两个
-*/
-int main(){
-	char ch1,ch2;
-	double T,D,H;
-	double i,exp,h,e;
-	while(cin&amp;gt;&amp;gt;ch1){
-		if(ch1=='E'){
-			break;
-		}else{
-			switch(ch1){
-				case'T':
-					cin&amp;gt;&amp;gt;T;
-					cin&amp;gt;&amp;gt;ch2;
-					switch(ch2){
-						case'D':
-							cin&amp;gt;&amp;gt;D;
-							i=5417.7530*((1/273.16)-(1/(D+273.16)));
-							exp=pow(2.718281828,i);
-							e=6.11*exp;
-							h=(0.5555)*(e-10.0);
-							H=T+h;	
-							break;
-						case'H':
-							cin&amp;gt;&amp;gt;H;
-							h=H-T;
-							e=h/0.5555+10.0;
-							exp=e/6.11;
-							i=log(exp);
-							D=1/(1/273.16-i/5417.7530)-273.16;
-							break;
-									
-					}
-					break;
-				case'H':
-					cin&amp;gt;&amp;gt;H;
-					cin&amp;gt;&amp;gt;ch2;
-					switch(ch2){
-						case'T':
-							cin&amp;gt;&amp;gt;T;
-							h=H-T;
-							e=h/0.5555+10.0;
-							exp=e/6.11;
-							i=log(exp);
-							D=1/(1/273.16-i/5417.7530)-273.16;
-							break;	
-						case'D':
-							cin&amp;gt;&amp;gt;D;
-							i=5417.7530*((1/273.16)-(1/(D+273.16)));
-							exp=pow(2.718281828,i);
-							e=6.11*exp;
-							h=(0.5555)*(e-10.0);
-							T=H-h;
-							break;
-					}
-					break;
-				case'D':
-					cin&amp;gt;&amp;gt;D;
-					cin&amp;gt;&amp;gt;ch2;
-					switch(ch2){
-						case'H':
-							cin&amp;gt;&amp;gt;H;
-							i=5417.7530*((1/273.16)-(1/(D+273.16)));
-							exp=pow(2.718281828,i);
-							e=6.11*exp;
-							h=(0.5555)*(e-10.0);
-							T=H-h;
-							break;
-						case'T':
-							cin&amp;gt;&amp;gt;T;
-							i=5417.7530*((1/273.16)-(1/(D+273.16)));
-							exp=pow(2.718281828,i);
-							e=6.11*exp;
-							h=(0.5555)*(e-10.0);
-							H=T+h;	
-							break;
-					}
-			}
-				
-			cout.setf(ios::fixed);
-			cout.precision(1);
- 			cout&amp;lt;&amp;lt;'T'&amp;lt;&amp;lt;&quot; &quot;&amp;lt;&amp;lt;T&amp;lt;&amp;lt;&quot; &quot;&amp;lt;&amp;lt;'D'&amp;lt;&amp;lt;&quot; &quot;&amp;lt;&amp;lt;D&amp;lt;&amp;lt;&quot; &quot;&amp;lt;&amp;lt;'H'&amp;lt;&amp;lt;&quot; &quot;&amp;lt;&amp;lt;H&amp;lt;&amp;lt;endl;
-		}
-	}
-	
-	return 0;
-}
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-</description>
-        <pubDate>Fri, 03 Aug 2018 18:37:01 +0800</pubDate>
-        <link>http://localhost:4000/2018/08/03/altgorithm-day1/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/08/03/altgorithm-day1/</guid>
-        
-        <category>Algorithm</category>
-        
-        
-        <category>算法之旅</category>
         
       </item>
     

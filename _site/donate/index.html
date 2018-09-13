@@ -194,10 +194,24 @@
 
     
     <footer class="footer" role="contentinfo">
-	<div class="container">
+		<div id="container"></div>
+		<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+		<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+		<script>
+		var gitment = new Gitment({
+		  id: '页面 ID', // 可选。默认为 location.href
+		  owner: 'WangQi1415',
+		  repo: 'wangqi1415.github.io',
+		  oauth: {
+			client_id: '74e9a0f2d2811affe176',
+			client_secret: 'bbb10cff4ba0ace9c8d49e7274cd3df39d23f664',
+		  },
+		})
+		gitment.render('container')
+		</script>
+
 		<p class="copyright">Copyright &copy; 2014-2018 <a href="http://www.wqblog.xyz"><code>wq</code></a>.</p>
 		<p>Powered by <a href="http://jekyllrb.com">Jekyll</a>, themed from <a href="http://lesscss.cn/">Less</a>, refactored by <a href="http://www.hifreud.com/">Freud Kang</a></p>
-	</div>
 </footer>
 
 <script src="/styles/js/jquery.min.js"></script>
