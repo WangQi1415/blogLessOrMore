@@ -34,3 +34,8 @@ Axis 2.0的入门
 =====================
 视音频编解码技术学习方法
 [http://blog.csdn.net/leixiaohua1020/article/details/18893769](http://blog.csdn.net/leixiaohua1020/article/details/18893769)
+
+
+【Python学习网站】
+=====================
+[Tkinter](https://tkdocs.com/tutorial/firstexample.html) 

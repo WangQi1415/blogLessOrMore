@@ -1,5 +1,6 @@
 <footer class="footer" role="contentinfo">
-		<div id="container"></div>
+	<div class="container">
+		<div id="mycontainer"></div>
 		<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
 		<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 		<script>
@@ -12,11 +13,12 @@
 			client_secret: 'bbb10cff4ba0ace9c8d49e7274cd3df39d23f664',
 		  },
 		})
-		gitment.render('container')
+		gitment.render('mycontainer')
 		</script>
 
 		<p class="copyright">Copyright &copy; 2014-{{ site.time | date: '%Y' }} <a href="{{site.resume_site}}"><code>{{ site.author }}</code></a>.</p>
 		<p>Powered by <a href="http://jekyllrb.com">Jekyll</a>, themed from <a href="http://lesscss.cn/">Less</a>, refactored by <a href="http://www.hifreud.com/">Freud Kang</a></p>
+	</div>
 </footer>
 
 <script src="{{ '/styles/js/jquery.min.js' | prepend: site.baseurl }}"></script>
