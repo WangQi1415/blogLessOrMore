@@ -25,7 +25,7 @@
 		gitment.render('container')
 		</script>
 ```
-列处自己踩过的几个坑
+列出自己踩过的几个坑：  
 1、owner需写成自己的用户名，比如本项目使用WangQi1415  
 2、repo用来存储评论信息，需写成仓库的名称，如上，不需要添加任何前缀，最后是要能够通过https://github.com/owner/repo访问到仓库的位置  
 3、配置oauth的时候callback路径应写为博客主页的URL，比如该项目为[www.wqblog.xyz](www.wqblog.xyz)   
