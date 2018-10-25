@@ -5,9 +5,282 @@
     <description>Actually, less is more!</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 13 Sep 2018 14:33:27 +0800</pubDate>
-    <lastBuildDate>Thu, 13 Sep 2018 14:33:27 +0800</lastBuildDate>
+    <pubDate>Thu, 25 Oct 2018 21:08:42 +0800</pubDate>
+    <lastBuildDate>Thu, 25 Oct 2018 21:08:42 +0800</lastBuildDate>
     <generator>Jekyll v3.8.3</generator>
+    
+      <item>
+        <title>Ubuntu配置shadowsocks</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#一ubuntu1404安装shadowsocks&quot; id=&quot;markdown-toc-一ubuntu1404安装shadowsocks&quot;&gt;一、Ubuntu14.04安装shadowsocks&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#1安装shadowsocks&quot; id=&quot;markdown-toc-1安装shadowsocks&quot;&gt;1、安装shadowsocks&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#2配置shadowsocks&quot; id=&quot;markdown-toc-2配置shadowsocks&quot;&gt;2、配置shadowsocks&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#1使用命令行配置-shadowsocks&quot; id=&quot;markdown-toc-1使用命令行配置-shadowsocks&quot;&gt;（1）使用命令行配置 shadowsocks&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#2使用json文件配置推荐&quot; id=&quot;markdown-toc-2使用json文件配置推荐&quot;&gt;（2）使用JSON文件配置（推荐）&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#二配置-proxy-switchyomega&quot; id=&quot;markdown-toc-二配置-proxy-switchyomega&quot;&gt;二、配置 Proxy SwitchyOmega&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#1添加代理服务器&quot; id=&quot;markdown-toc-1添加代理服务器&quot;&gt;1、添加代理服务器&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#2设置自动切换模式&quot; id=&quot;markdown-toc-2设置自动切换模式&quot;&gt;2、设置自动切换模式&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;一ubuntu1404安装shadowsocks&quot;&gt;一、Ubuntu14.04安装shadowsocks&lt;/h2&gt;
+&lt;p&gt;参考博客：&lt;br /&gt;
+&lt;a href=&quot;https://www.sundabao.com/ubuntu%E4%BD%BF%E7%94%A8shadowsocks/&quot;&gt;https://www.sundabao.com/ubuntu%E4%BD%BF%E7%94%A8shadowsocks/&lt;/a&gt; &lt;br /&gt;
+&lt;a href=&quot;https://www.switchyomega.com/settings/&quot;&gt;https://www.switchyomega.com/settings/&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;1安装shadowsocks&quot;&gt;1、安装shadowsocks&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get update
+sudo apt-get install python-pip
+sudo apt-get install python-setuptools m2crypto
+pip install shadowsocks
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3 id=&quot;2配置shadowsocks&quot;&gt;2、配置shadowsocks&lt;/h3&gt;
+&lt;p&gt;在终端输入 sslocal –help 可查看帮助&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Proxy options:
+  -c CONFIG              path to config file
+  -s SERVER_ADDR         server address
+  -p SERVER_PORT         server port, default: 8388
+  -b LOCAL_ADDR          local binding address, default: 127.0.0.1
+  -l LOCAL_PORT          local port, default: 1080
+  -k PASSWORD            password
+  -m METHOD              encryption method, default: aes-256-cfb
+  -t TIMEOUT             timeout in seconds, default: 300
+  --fast-open            use TCP_FASTOPEN, requires Linux 3.7+
+
+General options:
+  -h, --help             show this help message and exit
+  -d start/stop/restart  daemon mode
+  --pid-file PID_FILE    pid file for daemon mode
+  --log-file LOG_FILE    log file for daemon mode
+  --user USER            username to run as
+  -v, -vv                verbose mode
+  -q, -qq                quiet mode, only show warnings/errors
+  --version              show version information
+
+Online help: &amp;lt;https://github.com/shadowsocks/shadowsocks&amp;gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h4 id=&quot;1使用命令行配置-shadowsocks&quot;&gt;（1）使用命令行配置 shadowsocks&lt;/h4&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sslocal -s 11.22.33.44 -p 50003 -k &quot;123456&quot; -l 1080 -t 600 -m aes-256-cfb
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h4 id=&quot;2使用json文件配置推荐&quot;&gt;（2）使用JSON文件配置（推荐）&lt;/h4&gt;
+&lt;p&gt;在本地创建个文件shadowsocks.json,(这里我创建在用户目录下 ~/)，内容如下：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+    &quot;server&quot;:&quot;11.22.33.44&quot;,
+    &quot;server_port&quot;:50003,
+    &quot;local_port&quot;:1080,
+    &quot;password&quot;:&quot;123456&quot;,
+    &quot;timeout&quot;:600,
+    &quot;method&quot;:&quot;aes-256-cfb&quot;
+}
+
+server  你服务端的IP
+servier_port  你服务端的端口
+local_port  本地端口，一般默认1080
+passwd  ss服务端设置的密码
+timeout  超时设置 和服务端一样
+method  加密方法 和服务端一样
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;再在终端输入 ：sslocal -c ~/shadowsocks.json,结果如下：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;INFO: loading config from /home/nwpu/shadowsocks.json
+2018-10-25 19:51:42 INFO     loading libsodium from libsodium.so.18
+2018-10-25 19:51:42 INFO     starting local at 127.0.0.1:1080
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;到这步并没有完成，还需要在谷歌设置代理&lt;/p&gt;
+
+&lt;h2 id=&quot;二配置-proxy-switchyomega&quot;&gt;二、配置 Proxy SwitchyOmega&lt;/h2&gt;
+&lt;p&gt;下载安装参考&lt;a href=&quot;https://github.com/FelisCatus/SwitchyOmega/releases&quot;&gt;https://github.com/FelisCatus/SwitchyOmega/releases&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;1添加代理服务器&quot;&gt;1、添加代理服务器&lt;/h4&gt;
+&lt;p&gt;点击谷歌右上角  Proxy SwitchyOmega（假设你已经装好）-&amp;gt;options-&amp;gt;New profile
+&lt;img src=&quot;/styles/images/ssr/002.png&quot; alt=&quot;002&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;2设置自动切换模式&quot;&gt;2、设置自动切换模式&lt;/h4&gt;
+&lt;p&gt;Switch rules 切换规则，是指满足这种情景的情况下 使用后面选择的代理服务器上网，可以通过 Rule List Config进行批量导入。&lt;br /&gt;
+1、Rule List Format 选 AutoProxy&lt;br /&gt;
+2、Rule List URL :&lt;a href=&quot;https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt&quot;&gt;https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt&lt;/a&gt; &lt;br /&gt;
+3、点击 Download Profile Now&lt;br /&gt;
+如图：&lt;br /&gt;
+&lt;img src=&quot;/styles/images/ssr/003.png&quot; alt=&quot;002&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 25 Oct 2018 14:30:01 +0800</pubDate>
+        <link>http://localhost:4000/2018/10/25/ubuntu-ssr/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/10/25/ubuntu-ssr/</guid>
+        
+        <category>VPN</category>
+        
+        
+        <category>Ubuntu</category>
+        
+      </item>
+    
+      <item>
+        <title>编程——艺术与工具</title>
+        <description>
+&lt;p&gt;重点在于各类编程语言和工具实现的思想，而不是工具的使用！！！&lt;/p&gt;
+</description>
+        <pubDate>Sat, 15 Sep 2018 14:30:01 +0800</pubDate>
+        <link>http://localhost:4000/2018/09/15/param-note/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/09/15/param-note/</guid>
+        
+        <category>随笔杂谈</category>
+        
+        
+        <category>随笔杂谈</category>
+        
+      </item>
+    
+      <item>
+        <title>Prefessional Words</title>
+        <description>&lt;p&gt;toolkit 工具包 &lt;br /&gt;
+robust 强大的&lt;br /&gt;
+ported 移植&lt;br /&gt;
+assigned 分配&lt;br /&gt;
+ consistency 一致性&lt;br /&gt;
+ optimization 优化
+ entry 输入
+ Roundup 综述
+ Reference Manual 参考手册&lt;/p&gt;
+
+</description>
+        <pubDate>Sat, 15 Sep 2018 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/09/15/prefessional-words/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/09/15/prefessional-words/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>字典序法</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#问题描述&quot; id=&quot;markdown-toc-问题描述&quot;&gt;问题描述&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#解决方案&quot; id=&quot;markdown-toc-解决方案&quot;&gt;解决方案&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#代码实现&quot; id=&quot;markdown-toc-代码实现&quot;&gt;代码实现&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;前两天上组合数学课，学到了字典序法，今天上机实现下。&lt;/p&gt;
+&lt;h3 id=&quot;问题描述&quot;&gt;问题描述&lt;/h3&gt;
+&lt;p&gt;给定一个全排列你，使用字典序法求出下一个排列，即这个排列与下一个排列之间没有其他的排列。就要求这一个与下一个有尽可能长的共同前缀，也即变化限制在尽可能短的后缀上。
+例如：&lt;br /&gt;
+1  2  3  4&lt;br /&gt;
+1  2  4  3&lt;br /&gt;
+1  3  2  4&lt;br /&gt;
+…&lt;br /&gt;
+…&lt;br /&gt;
+…&lt;br /&gt;
+4  3  2  1&lt;/p&gt;
+
+&lt;h3 id=&quot;解决方案&quot;&gt;解决方案&lt;/h3&gt;
+&lt;p&gt;按字典排列的生成算法，可归纳其规律为：&lt;br /&gt;
+S1：求满足关系式 Pj-1&amp;lt; Pj的j的最大值，设为i,即&lt;br /&gt;
+    i=max{j|Pj-1&amp;lt;Pj}&lt;br /&gt;
+(说通俗点，即从右往左找，找第一个左边比相邻右边大的数字)&lt;/p&gt;
+
+&lt;p&gt;S2: 求满足关系式 Pi-1&amp;lt; Pk的k的最大值，设为h,即&lt;br /&gt;
+     h=max{k|Pi-1&amp;lt;Pk} 
+(从右往左找找第一个比i-1位置大的数)&lt;/p&gt;
+
+&lt;p&gt;S3: 互换 Pi-1与Pk&lt;br /&gt;
+S4:将Pi-1后的子序列逆序，便得到下一排列&lt;/p&gt;
+
+&lt;h3 id=&quot;代码实现&quot;&gt;代码实现&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include&amp;lt;iostream&amp;gt;
+using namespace std;
+
+int capacity;
+int size;//记录数组的下标
+int* add(int* a,int x){//指针作为形参来传递，可以改变指针指向的形参的内容，但是无法改变原来的指针
+	if(size==capacity){
+		int* b=new int[capacity+5];
+		capacity+=5;
+		for(int i=0;i&amp;lt;size;i++){
+			b[i]=a[i];
+		}
+		a=b;
+	}
+	a[size]=x;
+	size++;
+	return a;
+}
+void swap(int &amp;amp;x,int &amp;amp;y){
+	int tmp;
+	tmp=x;
+	x=y;
+	y=tmp;
+}
+void view(int* a){
+	for(int i=0;i&amp;lt;size;i++)
+	{
+		cout&amp;lt;&amp;lt;a[i]&amp;lt;&amp;lt;&quot; &quot;;
+	}
+	cout&amp;lt;&amp;lt;endl;
+}
+void inverse(int* a, int fromindex){
+	for(int i=fromindex,j=size-1;i&amp;lt;j;i++,j--){
+		swap(a[i],a[j]);
+	}
+}
+bool permutation(int* a){
+	int j,k;
+	bool flag=false;//标记是否为最后一个序列
+    for(j=size-1;j&amp;gt;0;j--){
+		if(a[j-1]&amp;lt;a[j]){
+			flag=true;
+			break;
+		}
+	}
+	if(!flag){
+		cout&amp;lt;&amp;lt;&quot;排列完成&quot;;
+			return false;
+	}
+	for(k=size-1;k&amp;gt;=j;k--){
+		if(a[k]&amp;gt;a[j-1])
+			break;
+	}
+	//cout&amp;lt;&amp;lt;a[k]&amp;lt;&amp;lt;&quot; &quot;&amp;lt;&amp;lt;a[j-1]&amp;lt;&amp;lt;endl;
+	swap(a[k],a[j-1]);
+	inverse(a,j);
+//	cout&amp;lt;&amp;lt;a[k]&amp;lt;&amp;lt;&quot; &quot;&amp;lt;&amp;lt;a[j-1]&amp;lt;&amp;lt;endl;
+	return true;
+}
+int main(){
+	int* a=new int[10];
+	capacity=10;
+	size=0;
+	int x;
+	while(cin&amp;gt;&amp;gt;x){
+		a=add(a,x);
+		char ch=getchar();
+		if(ch=='\n')
+			break;
+	}
+	
+	while(permutation(a)){
+		view(a);
+	}
+	
+	
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+</description>
+        <pubDate>Wed, 12 Sep 2018 14:30:01 +0800</pubDate>
+        <link>http://localhost:4000/2018/09/12/dictionary-sort/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/09/12/dictionary-sort/</guid>
+        
+        <category>Algorithm</category>
+        
+        
+        <category>算法之旅</category>
+        
+      </item>
     
       <item>
         <title>字符串复习与强化</title>
@@ -696,472 +969,6 @@ db.close()
         
         
         <category>随笔杂谈</category>
-        
-      </item>
-    
-      <item>
-        <title>Python 中的map()</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#python中的-map函数&quot; id=&quot;markdown-toc-python中的-map函数&quot;&gt;Python中的 map()函数&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#1语法&quot; id=&quot;markdown-toc-1语法&quot;&gt;1、语法&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#2参数详情&quot; id=&quot;markdown-toc-2参数详情&quot;&gt;2、参数详情&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#3返回值&quot; id=&quot;markdown-toc-3返回值&quot;&gt;3、返回值&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#4map与lambda-搭配使用&quot; id=&quot;markdown-toc-4map与lambda-搭配使用&quot;&gt;4、map()与lambda 搭配使用&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#5可以传递多个集合的元素作为参数&quot; id=&quot;markdown-toc-5可以传递多个集合的元素作为参数&quot;&gt;5、可以传递多个集合的元素作为参数&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;python中的-map函数&quot;&gt;Python中的 map()函数&lt;/h3&gt;
-&lt;h4 id=&quot;1语法&quot;&gt;1、语法&lt;/h4&gt;
-&lt;p&gt;map(function, iterable, …)&lt;/p&gt;
-&lt;h4 id=&quot;2参数详情&quot;&gt;2、参数详情&lt;/h4&gt;
-&lt;p&gt;function:将集合的每个元素当做参数传递给该函数
-iterable: 可迭代的集合，列表，元组等&lt;/p&gt;
-
-&lt;h4 id=&quot;3返回值&quot;&gt;3、返回值&lt;/h4&gt;
-&lt;p&gt;map()的返回值是一个map()对象  可以使用list(),set()函数来创建列表或者集合&lt;/p&gt;
-
-&lt;p&gt;示例：&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;def calculateSquare(n):
-  return n*n
-
-numbers = (1, 2, 3, 4)
-result = map(calculateSquare, numbers)
-print(result)
-# converting map object to set
-numbersSquare = set(result)
-print(numbersSquare)
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;输出：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;map object at 0x7fcd4b65f908&amp;gt;
-{16, 1, 4, 9}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h4 id=&quot;4map与lambda-搭配使用&quot;&gt;4、map()与lambda 搭配使用&lt;/h4&gt;
-&lt;p&gt;lambda函数经常与 map()搭配使用，来使得代码变得更加的简洁&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;numbers = (1, 2, 3, 4)
-result = map(lambda x: x*x, numbers)
-print(result)
-
-# converting map object to set
-numbersSquare = set(result)
-print(numbersSquare)
-
-结果：
-&amp;lt;map object at 0x7fcd4b65fa20&amp;gt;
-{16, 1, 4, 9}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h4 id=&quot;5可以传递多个集合的元素作为参数&quot;&gt;5、可以传递多个集合的元素作为参数&lt;/h4&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;num1 = [4, 5, 6]
-num2 = [5, 6, 7]
-
-result = map(lambda n1, n2: n1+n2, num1, num2)
-print(list(result))
-
-结果：
-[9, 11, 13]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-</description>
-        <pubDate>Wed, 29 Aug 2018 11:40:01 +0800</pubDate>
-        <link>http://localhost:4000/2018/08/29/python-map/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/08/29/python-map/</guid>
-        
-        <category>map</category>
-        
-        
-        <category>Python学习</category>
-        
-      </item>
-    
-      <item>
-        <title>Python lambda介绍</title>
-        <description>
-&lt;p&gt;转自：&lt;a href=&quot;https://www.cnblogs.com/evening/archive/2012/03/29/2423554.html&quot;&gt;https://www.cnblogs.com/evening/archive/2012/03/29/2423554.html&lt;/a&gt;&lt;/p&gt;
-
-&lt;div class=&quot;postBody&quot;&gt;
-			&lt;div id=&quot;cnblogs_post_body&quot; class=&quot;blogpost-body&quot;&gt;&lt;p&gt;　　在学习python的过程中，lambda的语法时常会使人感到困惑，lambda是什么，为什么要使用lambda，是不是必须使用lambda？&lt;/p&gt;
-&lt;p&gt;　　下面就上面的问题进行一下解答。&lt;/p&gt;
-&lt;p&gt;　　1、lambda是什么？&lt;/p&gt;
-&lt;p&gt;　　　　看个例子：　　　　　&lt;/p&gt;
-&lt;div class=&quot;cnblogs_code&quot;&gt;
-&lt;pre&gt;&lt;span style=&quot;color: #008080;&quot;&gt;1&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;g = lambda&lt;/span&gt; x:x+1&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;　　看一下执行的结果：　&lt;/p&gt;
-&lt;p&gt;　　g(1)&lt;/p&gt;
-&lt;p&gt;　　&amp;gt;&amp;gt;&amp;gt;2&lt;/p&gt;
-&lt;p&gt;　　g(2)&lt;/p&gt;
-&lt;p&gt;　　&amp;gt;&amp;gt;&amp;gt;3&lt;/p&gt;
-&lt;p&gt;　　当然，你也可以这样使用：&lt;/p&gt;
-&lt;p&gt;　　lambda x:x+1(1)&lt;/p&gt;
-&lt;p&gt;　　&amp;gt;&amp;gt;&amp;gt;2　　　&lt;/p&gt;
-&lt;p&gt;　　可以这样认为,lambda作为一个表达式，定义了一个匿名函数，上例的代码x为入口参数，x+1为函数体，用函数来表示为：&lt;/p&gt;
-&lt;div class=&quot;cnblogs_code&quot;&gt;
-&lt;pre&gt;&lt;span style=&quot;color: #008080;&quot;&gt;1&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;def&lt;/span&gt; g(x):&lt;br /&gt;&lt;span style=&quot;color: #008080;&quot;&gt;2&lt;/span&gt;     &lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; x+1&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;　　非常容易理解，在这里lambda简化了函数定义的书写形式。是代码更为简洁，但是使用函数的定义方式更为直观，易理解。&lt;/p&gt;
-&lt;p&gt;　　&lt;span&gt;Python中，也有几个定义好的全局函数方便使用的，filter, map, reduce　　&lt;/span&gt;&lt;/p&gt;
-
-&lt;pre&gt;&amp;gt;&amp;gt;&amp;gt; foo = [2, 18, 9, 22, 17, 24, 8, 12, 27]&lt;br /&gt;&amp;gt;&amp;gt;&amp;gt;&lt;br /&gt;&amp;gt;&amp;gt;&amp;gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;print&lt;/span&gt; filter(&lt;span style=&quot;color: #0000ff;&quot;&gt;lambda&lt;/span&gt; x: x % 3 == 0, foo)&lt;br /&gt;[18, 9, 24, 12, 27]&lt;br /&gt;&amp;gt;&amp;gt;&amp;gt;&lt;br /&gt;&amp;gt;&amp;gt;&amp;gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;print&lt;/span&gt; map(&lt;span style=&quot;color: #0000ff;&quot;&gt;lambda&lt;/span&gt; x: x * 2 + 10, foo)&lt;br /&gt;[14, 46, 28, 54, 44, 58, 26, 34, 64]&lt;br /&gt;&amp;gt;&amp;gt;&amp;gt;&lt;br /&gt;&amp;gt;&amp;gt;&amp;gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;print&lt;/span&gt; reduce(&lt;span style=&quot;color: #0000ff;&quot;&gt;lambda&lt;/span&gt; x, y: x + y, foo)&lt;br /&gt;139&lt;/pre&gt;
-
-&lt;p&gt;　　上面例子中的map的作用，非常简单清晰。但是，Python是否非要使用lambda才能做到这样的简洁程度呢？&lt;span&gt;在对象遍历处理方面，其实Python的for..in..if语法已经很强大，并且在易读上胜过了lambda。&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;　　比如上面map的例子，可以写成：&lt;/p&gt;
-&lt;p&gt;　　　　print [x * 2 + 10 for x in foo]&lt;/p&gt;
-&lt;p&gt;　　非常的简洁，易懂。&lt;/p&gt;
-&lt;p&gt;　　filter的例子可以写成：&lt;/p&gt;
-&lt;p&gt;　　　　print [x for x in foo if x % 3 == 0]&lt;/p&gt;
-&lt;p&gt;　　同样也是比lambda的方式更容易理解。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;　　上面简要介绍了什么是lambda,下面介绍为什么使用lambda,看一个例子（来自apihelper.py)：　　&lt;/p&gt;
-&lt;div class=&quot;cnblogs_code&quot;&gt;
-&lt;pre&gt;processFunc = collapse &lt;span style=&quot;color: #0000ff;&quot;&gt;and&lt;/span&gt; (&lt;span style=&quot;color: #0000ff;&quot;&gt;lambda&lt;/span&gt; s: &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;.join(s.split())) &lt;span style=&quot;color: #0000ff;&quot;&gt;or&lt;/span&gt; (&lt;span style=&quot;color: #0000ff;&quot;&gt;lambda&lt;/span&gt; s: s)&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;　　&lt;span class=&quot;application&quot;&gt;在Visual Basic&lt;/span&gt;，你很有可能要创建一个函数，接受一个字符串参数和一个 &lt;em class=&quot;parameter&quot;&gt;&lt;tt&gt;collapse&lt;/tt&gt;&lt;/em&gt; 参数，并使用 &lt;tt class=&quot;literal&quot;&gt;if&lt;/tt&gt; 语句确定是否压缩空白，然后再返回相应的值。这种方式是低效的，因为函数可能需要处理每一种可能的情况。每次你调用它，它将不得不在给出你所想要的东西之前，判断是否要压缩空白。在 &lt;span class=&quot;application&quot;&gt;Python&lt;/span&gt; 中，你可以将决策逻辑拿到函数外面，而定义一个裁减过的 &lt;tt class=&quot;literal&quot;&gt;lambda&lt;/tt&gt; 函数提供确切的 (唯一的) 你想要的。这种方式更为高效、更为优雅，而且很少引起那些令人讨厌 (哦，想到那些参数就头昏) 的错误。&lt;/p&gt;
-&lt;p&gt;　　通过此例子，我们发现，lambda的使用大量简化了代码，使代码简练清晰。但是值得注意的是，这会在一定程度上降低代码的可读性。如果不是非常熟悉python的人或许会对此感到不可理解。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;　　lambda 定义了一个匿名函数&lt;/p&gt;
-&lt;p&gt;　　lambda 并不会带来程序运行效率的提高，只会使代码更简洁。&lt;/p&gt;
-&lt;p&gt;　　如果可以使用for...in...if来完成的，坚决不用lambda。&lt;/p&gt;
-&lt;p&gt;　　如果使用lambda，lambda内不要包含循环，如果有，我宁愿定义函数来完成，使代码获得可重用性和更好的可读性。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;　　总结：lambda 是为了减少单行函数的定义而存在的。&lt;/p&gt;
-
-
-		&lt;/div&gt;
-&lt;/div&gt;
-</description>
-        <pubDate>Wed, 29 Aug 2018 11:26:01 +0800</pubDate>
-        <link>http://localhost:4000/2018/08/29/python-lambda/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/08/29/python-lambda/</guid>
-        
-        <category>lambda</category>
-        
-        
-        <category>Python</category>
-        
-      </item>
-    
-      <item>
-        <title>Netstat简介</title>
-        <description>
-&lt;p&gt;转载自：&lt;a href=&quot;https://linux.cn/article-2434-1.html&quot;&gt;https://linux.cn/article-2434-1.html&lt;/a&gt;&lt;/p&gt;
-
-&lt;div id=&quot;article_content&quot; class=&quot;bm&quot;&gt;
-&lt;div class=&quot;linuxcnad&quot;&gt;&lt;/div&gt;
-
-&lt;a id=&quot;3_0&quot; class=&quot;target-fix&quot;&gt;&lt;/a&gt;&lt;h3&gt;Netstat 简介&lt;/h3&gt;
-&lt;p&gt;Netstat 是一款命令行工具，可用于列出系统上所有的网络套接字连接情况，包括 tcp, udp 以及 unix 套接字，另外它还能列出处于监听状态（即等待接入请求）的套接字。如果你想确认系统上的 Web 服务有没有起来，你可以查看80端口有没有打开。以上功能使 netstat 成为网管和系统管理员的必备利器。在这篇教程中，我会列出几个例子，教大家如何使用 netstat 去查找网络连接信息和系统开启的端口号。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://dn-linuxcn.qbox.me/data/attachment/album/201401/02/204453pk58k6fcv83l1asf.png&quot; alt=&quot;&quot; width=&quot;256&quot; height=&quot;256&quot; /&gt;&lt;/p&gt;
-&lt;p&gt;以下的简单介绍来自 netstat 的 man 手册：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;netstat - 打印网络连接、路由表、连接的数据统计、伪装连接以及广播域成员。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;a id=&quot;3_900&quot; class=&quot;target-fix&quot;&gt;&lt;/a&gt;&lt;h3&gt;1. 列出所有连接&lt;/h3&gt;
-&lt;p&gt;第一个要介绍的，是最简单的命令：列出所有当前的连接。使用 -a 选项即可。&lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums prettyprinted&quot; style=&quot;&quot;&gt;&lt;ol class=&quot;linenums&quot;&gt;&lt;li class=&quot;L0&quot;&gt;&lt;span class=&quot;pln&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;netstat&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;a&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L1&quot;&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L2&quot;&gt;&lt;span class=&quot;typ&quot;&gt;Active&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Internet&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; connections &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;servers &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;and&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; established&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L3&quot;&gt;&lt;span class=&quot;typ&quot;&gt;Proto&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Recv&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;Q &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Send&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;Q &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Local&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Address&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;           &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Foreign&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Address&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;         &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;State&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L4&quot;&gt;&lt;span class=&quot;pln&quot;&gt;tcp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; enlightened&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;domain      &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                     LISTEN     &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L5&quot;&gt;&lt;span class=&quot;pln&quot;&gt;tcp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; localhost&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ipp           &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                     LISTEN     &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L6&quot;&gt;&lt;span class=&quot;pln&quot;&gt;tcp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; enlightened&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;local&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;54750&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; li240&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;5.members&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;li&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;http ESTABLISHED&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L7&quot;&gt;&lt;span class=&quot;pln&quot;&gt;tcp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; enlightened&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;local&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;49980&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; del01s07&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;f14&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;https ESTABLISHED&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L8&quot;&gt;&lt;span class=&quot;pln&quot;&gt;tcp6       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; ip6&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;localhost&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ipp       &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[::]:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                  LISTEN     &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L9&quot;&gt;&lt;span class=&quot;pln&quot;&gt;udp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; enlightened&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;domain      &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                                &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L0&quot;&gt;&lt;span class=&quot;pln&quot;&gt;udp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;bootpc                &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                                &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L1&quot;&gt;&lt;span class=&quot;pln&quot;&gt;udp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; enlightened&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;local&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ntp   &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                                &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L2&quot;&gt;&lt;span class=&quot;pln&quot;&gt;udp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; localhost&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ntp           &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                                &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L3&quot;&gt;&lt;span class=&quot;pln&quot;&gt;udp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ntp                   &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                                &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L4&quot;&gt;&lt;span class=&quot;pln&quot;&gt;udp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;58570&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                 &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                                &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L5&quot;&gt;&lt;span class=&quot;pln&quot;&gt;udp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;mdns                  &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                                &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L6&quot;&gt;&lt;span class=&quot;pln&quot;&gt;udp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;49459&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                 &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                                &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L7&quot;&gt;&lt;span class=&quot;pln&quot;&gt;udp6       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; fe80&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;216&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;36ff&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;fef8&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ntp &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[::]:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                             &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L8&quot;&gt;&lt;span class=&quot;pln&quot;&gt;udp6       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; ip6&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;localhost&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ntp       &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[::]:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                             &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L9&quot;&gt;&lt;span class=&quot;pln&quot;&gt;udp6       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[::]:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ntp                &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[::]:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                             &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L0&quot;&gt;&lt;span class=&quot;pln&quot;&gt;udp6       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[::]:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;mdns               &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[::]:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                             &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L1&quot;&gt;&lt;span class=&quot;pln&quot;&gt;udp6       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[::]:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;63811&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;              &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[::]:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                             &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L2&quot;&gt;&lt;span class=&quot;pln&quot;&gt;udp6       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[::]:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;54952&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;              &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[::]:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                             &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L3&quot;&gt;&lt;span class=&quot;typ&quot;&gt;Active&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; UNIX domain sockets &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;servers &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;and&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; established&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L4&quot;&gt;&lt;span class=&quot;typ&quot;&gt;Proto&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;RefCnt&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Flags&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;       &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Type&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;       &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;State&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;         I&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Node&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Path&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L5&quot;&gt;&lt;span class=&quot;pln&quot;&gt;unix  &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; ACC &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;     STREAM     LISTENING     &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;12403&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;str&quot;&gt;/tmp/&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;dbus&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;IDgfj3UGXX&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L6&quot;&gt;&lt;span class=&quot;pln&quot;&gt;unix  &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; ACC &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;     STREAM     LISTENING     &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;40202&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;str&quot;&gt;/dbus-vfs-daemon/&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;socket&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;6nUC6CCx&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/pre&gt;
-&lt;p&gt;上述命令列出 tcp, udp 和 unix 协议下所有套接字的所有连接。然而这些信息还不够详细，管理员往往需要查看某个协议或端口的具体连接情况。&lt;/p&gt;
-&lt;a id=&quot;3_3268&quot; class=&quot;target-fix&quot;&gt;&lt;/a&gt;&lt;h3&gt;2. 只列出 TCP 或 UDP 协议的连接&lt;/h3&gt;
-&lt;p&gt;使用 &lt;strong&gt;-t&lt;/strong&gt; 选项列出 TCP 协议的连接：&lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums prettyprinted&quot; style=&quot;&quot;&gt;&lt;ol class=&quot;linenums&quot;&gt;&lt;li class=&quot;L0&quot;&gt;&lt;span class=&quot;pln&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;netstat&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;at&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L1&quot;&gt;&lt;span class=&quot;typ&quot;&gt;Active&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Internet&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; connections &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;servers &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;and&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; established&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L2&quot;&gt;&lt;span class=&quot;typ&quot;&gt;Proto&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Recv&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;Q &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Send&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;Q &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Local&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Address&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;           &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Foreign&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Address&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;         &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;State&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L3&quot;&gt;&lt;span class=&quot;pln&quot;&gt;tcp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; enlightened&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;domain      &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                     LISTEN     &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L4&quot;&gt;&lt;span class=&quot;pln&quot;&gt;tcp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; localhost&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ipp           &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                     LISTEN     &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L5&quot;&gt;&lt;span class=&quot;pln&quot;&gt;tcp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; enlightened&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;local&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;36310&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; del01s07&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;f24&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;https ESTABLISHED&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L6&quot;&gt;&lt;span class=&quot;pln&quot;&gt;tcp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; enlightened&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;local&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;45038&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; a96&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;17&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;181&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;10.depl&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;http ESTABLISHED&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L7&quot;&gt;&lt;span class=&quot;pln&quot;&gt;tcp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; enlightened&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;local&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;37892&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; ABTS&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;North&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Static&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;http ESTABLISHED&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L8&quot;&gt;&lt;span class=&quot;pun&quot;&gt;.....&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/pre&gt;
-&lt;p&gt;使用 &lt;strong&gt;-u&lt;/strong&gt; 选项列出 UDP 协议的连接：&lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums prettyprinted&quot; style=&quot;&quot;&gt;&lt;ol class=&quot;linenums&quot;&gt;&lt;li class=&quot;L0&quot;&gt;&lt;span class=&quot;pln&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;netstat&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;au&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L1&quot;&gt;&lt;span class=&quot;typ&quot;&gt;Active&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Internet&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; connections &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;servers &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;and&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; established&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L2&quot;&gt;&lt;span class=&quot;typ&quot;&gt;Proto&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Recv&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;Q &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Send&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;Q &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Local&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Address&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;           &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Foreign&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Address&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;         &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;State&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L3&quot;&gt;&lt;span class=&quot;pln&quot;&gt;udp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;34660&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                 &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                                &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L4&quot;&gt;&lt;span class=&quot;pln&quot;&gt;udp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; enlightened&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;domain      &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                                &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L5&quot;&gt;&lt;span class=&quot;pln&quot;&gt;udp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;bootpc                &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                                &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L6&quot;&gt;&lt;span class=&quot;pln&quot;&gt;udp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; enlightened&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;local&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ntp   &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                                &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L7&quot;&gt;&lt;span class=&quot;pln&quot;&gt;udp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; localhost&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ntp           &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                                &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L8&quot;&gt;&lt;span class=&quot;pln&quot;&gt;udp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ntp                   &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                                &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L9&quot;&gt;&lt;span class=&quot;pln&quot;&gt;udp6       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; fe80&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;216&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;36ff&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;fef8&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ntp &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[::]:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                             &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L0&quot;&gt;&lt;span class=&quot;pln&quot;&gt;udp6       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; ip6&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;localhost&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ntp       &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[::]:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                             &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L1&quot;&gt;&lt;span class=&quot;pln&quot;&gt;udp6       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[::]:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ntp                &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[::]:*&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/pre&gt;
-&lt;p&gt;上面同时显示了 IPv4 和 IPv6 的连接。&lt;/p&gt;
-&lt;a id=&quot;3_5016&quot; class=&quot;target-fix&quot;&gt;&lt;/a&gt;&lt;h3&gt;3. 禁用反向域名解析，加快查询速度&lt;/h3&gt;
-&lt;p&gt;默认情况下 netstat 会通过反向域名解析技术查找每个 IP 地址对应的主机名。这会降低查找速度。如果你觉得 IP 地址已经足够，而没有必要知道主机名，就使用 &lt;strong&gt;-n&lt;/strong&gt; 选项禁用域名解析功能。&lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums prettyprinted&quot; style=&quot;&quot;&gt;&lt;ol class=&quot;linenums&quot;&gt;&lt;li class=&quot;L0&quot;&gt;&lt;span class=&quot;pln&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;netstat&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ant&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L1&quot;&gt;&lt;span class=&quot;typ&quot;&gt;Active&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Internet&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; connections &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;servers &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;and&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; established&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L2&quot;&gt;&lt;span class=&quot;typ&quot;&gt;Proto&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Recv&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;Q &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Send&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;Q &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Local&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Address&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;           &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Foreign&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Address&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;         &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;State&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L3&quot;&gt;&lt;span class=&quot;pln&quot;&gt;tcp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;127.0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1.1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;53&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;            &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;               LISTEN     &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L4&quot;&gt;&lt;span class=&quot;pln&quot;&gt;tcp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;127.0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0.1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;631&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;           &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;               LISTEN     &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L5&quot;&gt;&lt;span class=&quot;pln&quot;&gt;tcp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;192.168&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1.2&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;49058&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;173.255&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;230.5&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;        ESTABLISHED&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L6&quot;&gt;&lt;span class=&quot;pln&quot;&gt;tcp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;192.168&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1.2&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;33324&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;173.194&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;36.117&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;443&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      ESTABLISHED&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L7&quot;&gt;&lt;span class=&quot;pln&quot;&gt;tcp6       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;631&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                 &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:::*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                    LISTEN&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/pre&gt;
-&lt;p&gt;上述命令列出所有 TCP 协议的连接，没有使用域名解析技术。So easy ? 非常好。&lt;/p&gt;
-&lt;a id=&quot;3_6052&quot; class=&quot;target-fix&quot;&gt;&lt;/a&gt;&lt;h3&gt;4. 只列出监听中的连接&lt;/h3&gt;
-&lt;p&gt;任何网络服务的后台进程都会打开一个端口，用于监听接入的请求。这些正在监听的套接字也和连接的套接字一样，也能被 netstat 列出来。使用 &lt;strong&gt;-l&lt;/strong&gt; 选项列出正在监听的套接字。&lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums prettyprinted&quot; style=&quot;&quot;&gt;&lt;ol class=&quot;linenums&quot;&gt;&lt;li class=&quot;L0&quot;&gt;&lt;span class=&quot;pln&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;netstat&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;tnl&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L1&quot;&gt;&lt;span class=&quot;typ&quot;&gt;Active&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Internet&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; connections &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;only servers&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L2&quot;&gt;&lt;span class=&quot;typ&quot;&gt;Proto&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Recv&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;Q &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Send&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;Q &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Local&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Address&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;           &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Foreign&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Address&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;         &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;State&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L3&quot;&gt;&lt;span class=&quot;pln&quot;&gt;tcp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;127.0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1.1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;53&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;            &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;               LISTEN     &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L4&quot;&gt;&lt;span class=&quot;pln&quot;&gt;tcp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;127.0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0.1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;631&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;           &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;               LISTEN     &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L5&quot;&gt;&lt;span class=&quot;pln&quot;&gt;tcp6       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;631&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                 &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:::*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                    LISTEN&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/pre&gt;
-&lt;p&gt;现在我们可以看到处于监听状态的 TCP 端口和连接。如果你查看所有监听端口，去掉 &lt;strong&gt;-t&lt;/strong&gt; 选项。如果你只想查看 UDP 端口，使用 &lt;strong&gt;-u&lt;/strong&gt; 选项，代替 &lt;strong&gt;-t&lt;/strong&gt; 选项。&lt;/p&gt;
-&lt;p&gt;注意：不要使用 &lt;strong&gt;-a&lt;/strong&gt; 选项，否则 netstat 会列出所有连接，而不仅仅是监听端口。&lt;/p&gt;
-&lt;a id=&quot;3_7157&quot; class=&quot;target-fix&quot;&gt;&lt;/a&gt;&lt;h3&gt;5. 获取进程名、进程号以及用户 ID&lt;/h3&gt;
-&lt;p&gt;查看端口和连接的信息时，能查看到它们对应的进程名和进程号对系统管理员来说是非常有帮助的。举个栗子，Apache 的 httpd 服务开启80端口，如果你要查看 http 服务是否已经启动，或者 http 服务是由 apache 还是 nginx 启动的，这时候你可以看看进程名。&lt;/p&gt;
-&lt;p&gt;使用 &lt;strong&gt;-p&lt;/strong&gt; 选项查看进程信息。&lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums prettyprinted&quot; style=&quot;&quot;&gt;&lt;ol class=&quot;linenums&quot;&gt;&lt;li class=&quot;L0&quot;&gt;&lt;span class=&quot;pun&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;netstat&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;nlpt&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L1&quot;&gt;&lt;span class=&quot;typ&quot;&gt;Active&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Internet&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; connections &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;only servers&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L2&quot;&gt;&lt;span class=&quot;typ&quot;&gt;Proto&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Recv&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;Q &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Send&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;Q &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Local&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Address&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;           &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Foreign&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Address&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;         &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;State&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;       PID&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Program&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; name&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L3&quot;&gt;&lt;span class=&quot;pln&quot;&gt;tcp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;127.0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1.1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;53&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;            &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;               LISTEN      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1144&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;dnsmasq    &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L4&quot;&gt;&lt;span class=&quot;pln&quot;&gt;tcp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;127.0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0.1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;631&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;           &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;               LISTEN      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;661&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;cupsd       &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L5&quot;&gt;&lt;span class=&quot;pln&quot;&gt;tcp6       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;631&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                 &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:::*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                    LISTEN      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;661&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;cupsd&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/pre&gt;
-&lt;p&gt;使用 &lt;strong&gt;-p&lt;/strong&gt; 选项时，netstat 必须运行在 root 权限之下，不然它就不能得到运行在 root 权限下的进程名，而很多服务包括 http 和 ftp 都运行在 root 权限之下。&lt;/p&gt;
-&lt;p&gt;相比进程名和进程号而言，查看进程的拥有者会更有用。使用 &lt;strong&gt;-ep&lt;/strong&gt; 选项可以同时查看进程名和用户名。&lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums prettyprinted&quot; style=&quot;&quot;&gt;&lt;ol class=&quot;linenums&quot;&gt;&lt;li class=&quot;L0&quot;&gt;&lt;span class=&quot;pln&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;netstat&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ltpe&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L1&quot;&gt;&lt;span class=&quot;typ&quot;&gt;Active&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Internet&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; connections &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;only servers&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L2&quot;&gt;&lt;span class=&quot;typ&quot;&gt;Proto&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Recv&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;Q &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Send&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;Q &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Local&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Address&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;           &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Foreign&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Address&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;         &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;State&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;       &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;       &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Inode&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;       PID&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Program&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; name&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L3&quot;&gt;&lt;span class=&quot;pln&quot;&gt;tcp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; enlightened&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;domain      &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                     LISTEN      root       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;11090&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1144&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;dnsmasq    &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L4&quot;&gt;&lt;span class=&quot;pln&quot;&gt;tcp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; localhost&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ipp           &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                     LISTEN      root       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;9755&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;661&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;cupsd       &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L5&quot;&gt;&lt;span class=&quot;pln&quot;&gt;tcp6       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; ip6&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;localhost&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ipp       &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[::]:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                  LISTEN      root       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;9754&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;661&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;cupsd&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/pre&gt;
-&lt;p&gt;上面列出 TCP 协议下的监听套接字，同时显示进程信息和一些额外信息。&lt;/p&gt;
-&lt;p&gt;这些额外的信息包括用户名和进程的索引节点号。这个命令对网管来说很有用。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt; - 假如你将 &lt;strong&gt;-n&lt;/strong&gt; 和 &lt;strong&gt;-e&lt;/strong&gt; 选项一起使用，User 列的属性就是用户的 ID 号，而不是用户名。&lt;/p&gt;
-&lt;a id=&quot;3_9472&quot; class=&quot;target-fix&quot;&gt;&lt;/a&gt;&lt;h3&gt;6. 打印统计数据&lt;/h3&gt;
-&lt;p&gt;netstat 可以打印出网络统计数据，包括某个协议下的收发包数量。&lt;/p&gt;
-&lt;p&gt;下面列出所有网络包的统计情况：&lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums prettyprinted&quot; style=&quot;&quot;&gt;&lt;ol class=&quot;linenums&quot;&gt;&lt;li class=&quot;L0&quot;&gt;&lt;span class=&quot;pln&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;netstat&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;s&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L1&quot;&gt;&lt;span class=&quot;typ&quot;&gt;Ip&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L2&quot;&gt;&lt;span class=&quot;pln&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;32797&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; total packets received&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L3&quot;&gt;&lt;span class=&quot;pln&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; forwarded&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L4&quot;&gt;&lt;span class=&quot;pln&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; incoming packets discarded&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L5&quot;&gt;&lt;span class=&quot;pln&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;32795&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; incoming packets delivered&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L6&quot;&gt;&lt;span class=&quot;pln&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;29115&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; requests sent out&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L7&quot;&gt;&lt;span class=&quot;pln&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;60&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; outgoing packets dropped&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L8&quot;&gt;&lt;span class=&quot;typ&quot;&gt;Icmp&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L9&quot;&gt;&lt;span class=&quot;pln&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;125&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; ICMP messages received&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L0&quot;&gt;&lt;span class=&quot;pln&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; input ICMP message failed&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L1&quot;&gt;&lt;span class=&quot;pln&quot;&gt;    ICMP input histogram&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L2&quot;&gt;&lt;span class=&quot;pln&quot;&gt;        destination unreachable&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;125&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L3&quot;&gt;&lt;span class=&quot;pln&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;125&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; ICMP messages sent&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L4&quot;&gt;&lt;span class=&quot;pln&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; ICMP messages failed&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L5&quot;&gt;&lt;span class=&quot;pln&quot;&gt;    ICMP output histogram&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L6&quot;&gt;&lt;span class=&quot;pln&quot;&gt;        destination unreachable&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;125&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L7&quot;&gt;&lt;span class=&quot;pun&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; OUTPUT TRUNCATED &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;...&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/pre&gt;
-&lt;p&gt;如果想只打印出 TCP 或 UDP 协议的统计数据，只要加上对应的选项（&lt;strong&gt;-t&lt;/strong&gt; 和 &lt;strong&gt;-u&lt;/strong&gt;）即可，so easy。&lt;/p&gt;
-&lt;a id=&quot;3_10347&quot; class=&quot;target-fix&quot;&gt;&lt;/a&gt;&lt;h3&gt;7. 显示内核路由信息&lt;/h3&gt;
-&lt;p&gt;使用 &lt;strong&gt;-r&lt;/strong&gt; 选项打印内核路由信息。打印出来的信息与 route 命令输出的信息一样。我们也可以使用 &lt;strong&gt;-n&lt;/strong&gt; 选项禁止域名解析。&lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums prettyprinted&quot; style=&quot;&quot;&gt;&lt;ol class=&quot;linenums&quot;&gt;&lt;li class=&quot;L0&quot;&gt;&lt;span class=&quot;pln&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;netstat&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;rn&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L1&quot;&gt;&lt;span class=&quot;typ&quot;&gt;Kernel&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; IP routing table&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L2&quot;&gt;&lt;span class=&quot;typ&quot;&gt;Destination&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;     &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Gateway&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;         &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Genmask&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;         &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Flags&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;   MSS &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Window&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;  irtt &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Iface&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L3&quot;&gt;&lt;span class=&quot;lit&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;         &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;192.168&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1.1&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;     &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;         UG        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;          &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; eth0&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L4&quot;&gt;&lt;span class=&quot;lit&quot;&gt;192.168&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;     &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;         &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;255.255&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;255.0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;   U         &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;          &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; eth0&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/pre&gt;
-&lt;a id=&quot;3_10904&quot; class=&quot;target-fix&quot;&gt;&lt;/a&gt;&lt;h3&gt;8. 打印网络接口&lt;/h3&gt;
-&lt;p&gt;netstat 也能打印网络接口信息，&lt;strong&gt;-i&lt;/strong&gt; 选项就是为这个功能而生。&lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums prettyprinted&quot; style=&quot;&quot;&gt;&lt;ol class=&quot;linenums&quot;&gt;&lt;li class=&quot;L0&quot;&gt;&lt;span class=&quot;pln&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;netstat&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;i&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L1&quot;&gt;&lt;span class=&quot;typ&quot;&gt;Kernel&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Interface&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; table&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L2&quot;&gt;&lt;span class=&quot;typ&quot;&gt;Iface&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;   MTU &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Met&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;   RX&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;OK RX&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ERR RX&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;DRP RX&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;OVR    TX&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;OK TX&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ERR TX&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;DRP TX&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;OVR &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Flg&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L3&quot;&gt;&lt;span class=&quot;pln&quot;&gt;eth0       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1500&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;     &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;31611&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;         &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;27503&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; BMRU&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L4&quot;&gt;&lt;span class=&quot;pln&quot;&gt;lo        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;65536&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;2913&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;          &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;2913&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; LRU&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/pre&gt;
-&lt;p&gt;上面输出的信息比较原始。我们将 &lt;strong&gt;-e&lt;/strong&gt; 选项和 &lt;strong&gt;-i&lt;/strong&gt; 选项搭配使用，可以输出用户友好的信息。&lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums prettyprinted&quot; style=&quot;&quot;&gt;&lt;ol class=&quot;linenums&quot;&gt;&lt;li class=&quot;L0&quot;&gt;&lt;span class=&quot;pln&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;netstat&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ie&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L1&quot;&gt;&lt;span class=&quot;typ&quot;&gt;Kernel&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Interface&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; table&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L2&quot;&gt;&lt;span class=&quot;pln&quot;&gt;eth0      &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Link&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; encap&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Ethernet&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;HWaddr&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;00&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;36&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;f8&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;b2&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;64&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;  &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L3&quot;&gt;&lt;span class=&quot;pln&quot;&gt;          inet addr&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;192.168&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1.2&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Bcast&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;192.168&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1.255&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Mask&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;255.255&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;255.0&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L4&quot;&gt;&lt;span class=&quot;pln&quot;&gt;          inet6 addr&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; fe80&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;216&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;36ff&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;fef8&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;b264&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;64&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Scope&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Link&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L5&quot;&gt;&lt;span class=&quot;pln&quot;&gt;          UP BROADCAST RUNNING MULTICAST  MTU&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1500&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Metric&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L6&quot;&gt;&lt;span class=&quot;pln&quot;&gt;          RX packets&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;31682&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; errors&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; dropped&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; overruns&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; frame&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L7&quot;&gt;&lt;span class=&quot;pln&quot;&gt;          TX packets&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;27573&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; errors&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; dropped&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; overruns&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; carrier&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L8&quot;&gt;&lt;span class=&quot;pln&quot;&gt;          collisions&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; txqueuelen&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L9&quot;&gt;&lt;span class=&quot;pln&quot;&gt;          RX bytes&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;29637117&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;29.6&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; MB&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;  TX bytes&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;4590583&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;4.5&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; MB&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L0&quot;&gt;&lt;span class=&quot;pln&quot;&gt;          &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Interrupt&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;18&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Memory&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;da000000&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;da020000 &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L1&quot;&gt;&lt;span class=&quot;pln&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L2&quot;&gt;&lt;span class=&quot;pln&quot;&gt;lo        &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Link&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; encap&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Local&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Loopback&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;  &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L3&quot;&gt;&lt;span class=&quot;pln&quot;&gt;          inet addr&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;127.0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0.1&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Mask&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;255.0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0.0&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L4&quot;&gt;&lt;span class=&quot;pln&quot;&gt;          inet6 addr&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;128&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Scope&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Host&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L5&quot;&gt;&lt;span class=&quot;pln&quot;&gt;          UP LOOPBACK RUNNING  MTU&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;65536&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Metric&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L6&quot;&gt;&lt;span class=&quot;pln&quot;&gt;          RX packets&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;2921&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; errors&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; dropped&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; overruns&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; frame&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L7&quot;&gt;&lt;span class=&quot;pln&quot;&gt;          TX packets&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;2921&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; errors&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; dropped&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; overruns&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; carrier&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L8&quot;&gt;&lt;span class=&quot;pln&quot;&gt;          collisions&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; txqueuelen&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L9&quot;&gt;&lt;span class=&quot;pln&quot;&gt;          RX bytes&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;305297&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;305.2&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; KB&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;  TX bytes&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;305297&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;305.2&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; KB&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;)&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/pre&gt;
-&lt;p&gt;上面的输出信息与 ifconfig 输出的信息一样。&lt;/p&gt;
-&lt;a id=&quot;3_12647&quot; class=&quot;target-fix&quot;&gt;&lt;/a&gt;&lt;h3&gt;9. netstat 持续输出&lt;/h3&gt;
-&lt;p&gt;我们可以使用 netstat 的 &lt;strong&gt;-c&lt;/strong&gt; 选项持续输出信息。&lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums prettyprinted&quot; style=&quot;&quot;&gt;&lt;ol class=&quot;linenums&quot;&gt;&lt;li class=&quot;L0&quot;&gt;&lt;span class=&quot;pln&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;netstat&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ct&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/pre&gt;
-&lt;p&gt;这个命令可持续输出 TCP 协议信息。&lt;/p&gt;
-&lt;a id=&quot;3_12881&quot; class=&quot;target-fix&quot;&gt;&lt;/a&gt;&lt;h3&gt;10. 显示多播组信息&lt;/h3&gt;
-&lt;p&gt;选项 &lt;strong&gt;-g&lt;/strong&gt; 会输出 IPv4 和 IPv6 的多播组信息。&lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums prettyprinted&quot; style=&quot;&quot;&gt;&lt;ol class=&quot;linenums&quot;&gt;&lt;li class=&quot;L0&quot;&gt;&lt;span class=&quot;pln&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;netstat&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;g&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L1&quot;&gt;&lt;span class=&quot;typ&quot;&gt;IPv6&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;IPv4&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Group&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Memberships&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L2&quot;&gt;&lt;span class=&quot;typ&quot;&gt;Interface&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;       &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;RefCnt&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Group&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L3&quot;&gt;&lt;span class=&quot;pun&quot;&gt;---------------&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;------&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;---------------------&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L4&quot;&gt;&lt;span class=&quot;pln&quot;&gt;lo              &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      all&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;systems&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;mcast&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;net&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L5&quot;&gt;&lt;span class=&quot;pln&quot;&gt;eth0            &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;224.0&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0.251&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L6&quot;&gt;&lt;span class=&quot;pln&quot;&gt;eth0            &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      all&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;systems&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;mcast&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;net&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L7&quot;&gt;&lt;span class=&quot;pln&quot;&gt;lo              &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      ip6&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;allnodes&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L8&quot;&gt;&lt;span class=&quot;pln&quot;&gt;lo              &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      ff01&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L9&quot;&gt;&lt;span class=&quot;pln&quot;&gt;eth0            &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      ff02&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;fb&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L0&quot;&gt;&lt;span class=&quot;pln&quot;&gt;eth0            &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      ff02&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;fff8&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;b264&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L1&quot;&gt;&lt;span class=&quot;pln&quot;&gt;eth0            &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      ip6&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;allnodes&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L2&quot;&gt;&lt;span class=&quot;pln&quot;&gt;eth0            &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      ff01&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L3&quot;&gt;&lt;span class=&quot;pln&quot;&gt;wlan0           &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      ip6&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;allnodes&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L4&quot;&gt;&lt;span class=&quot;pln&quot;&gt;wlan0           &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      ff01&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/pre&gt;
-&lt;a id=&quot;3_13569&quot; class=&quot;target-fix&quot;&gt;&lt;/a&gt;&lt;h3&gt;更多用法&lt;/h3&gt;
-&lt;p&gt;目前为止我们列出了 netstat 的基本用法，现在让我们一起来 geek 吧～&lt;/p&gt;
-&lt;a id=&quot;3_13691&quot; class=&quot;target-fix&quot;&gt;&lt;/a&gt;&lt;h3&gt;打印 active 状态的连接&lt;/h3&gt;
-&lt;p&gt;active 状态的套接字连接用 &quot;ESTABLISHED&quot; 字段表示，所以我们可以使用 grep 命令获得 active 状态的连接：&lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums prettyprinted&quot; style=&quot;&quot;&gt;&lt;ol class=&quot;linenums&quot;&gt;&lt;li class=&quot;L0&quot;&gt;&lt;span class=&quot;pln&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;netstat&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;atnp &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;grep&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; ESTA&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L1&quot;&gt;&lt;span class=&quot;pun&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;typ&quot;&gt;Not&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; all processes could be identified&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; non&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;owned process &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;info&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L2&quot;&gt;&lt;span class=&quot;pln&quot;&gt; will &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;not&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; be shown&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; you would have to be root to see it all&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.)&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L3&quot;&gt;&lt;span class=&quot;pln&quot;&gt;tcp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;192.168&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1.2&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;49156&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;173.255&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;230.5&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;        ESTABLISHED &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1691&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;chrome     &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L4&quot;&gt;&lt;span class=&quot;pln&quot;&gt;tcp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;192.168&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1.2&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;33324&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;173.194&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;36.117&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;443&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      ESTABLISHED &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1691&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;chrome&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/pre&gt;
-&lt;p&gt;配合 watch 命令监视 active 状态的连接：&lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums prettyprinted&quot; style=&quot;&quot;&gt;&lt;ol class=&quot;linenums&quot;&gt;&lt;li class=&quot;L0&quot;&gt;&lt;span class=&quot;pln&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;watch&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;d &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;n0 &lt;/span&gt;&lt;span class=&quot;str&quot;&gt;&quot;netstat -atnp | grep ESTA&quot;&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/pre&gt;
-&lt;a id=&quot;3_14407&quot; class=&quot;target-fix&quot;&gt;&lt;/a&gt;&lt;h3&gt;查看服务是否在运行&lt;/h3&gt;
-&lt;p&gt;如果你想看看 http,smtp 或 ntp 服务是否在运行，使用 grep。&lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums prettyprinted&quot; style=&quot;&quot;&gt;&lt;ol class=&quot;linenums&quot;&gt;&lt;li class=&quot;L0&quot;&gt;&lt;span class=&quot;pln&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;sudo&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;netstat&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;aple &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;grep&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; ntp&lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L1&quot;&gt;&lt;span class=&quot;pln&quot;&gt;udp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; enlightened&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kwd&quot;&gt;local&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ntp   &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                                 root       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;17430&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1789&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ntpd       &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L2&quot;&gt;&lt;span class=&quot;pln&quot;&gt;udp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; localhost&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ntp           &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                                 root       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;17429&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1789&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ntpd       &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L3&quot;&gt;&lt;span class=&quot;pln&quot;&gt;udp        &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ntp                   &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;*:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                                 root       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;17422&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1789&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ntpd       &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L4&quot;&gt;&lt;span class=&quot;pln&quot;&gt;udp6       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; fe80&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;216&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;36ff&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;fef8&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ntp &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[::]:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                              root       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;17432&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1789&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ntpd       &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L5&quot;&gt;&lt;span class=&quot;pln&quot;&gt;udp6       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; ip6&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;localhost&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ntp       &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[::]:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                              root       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;17431&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1789&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ntpd       &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L6&quot;&gt;&lt;span class=&quot;pln&quot;&gt;udp6       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[::]:&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ntp                &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[::]:*&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;                              root       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;17423&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;       &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1789&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ntpd       &lt;/span&gt;&lt;/li&gt;&lt;li class=&quot;L7&quot;&gt;&lt;span class=&quot;pln&quot;&gt;unix  &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt; &lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;         DGRAM                    &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;17418&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;lit&quot;&gt;1789&lt;/span&gt;&lt;span class=&quot;pun&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;pln&quot;&gt;ntpd&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/pre&gt;
-&lt;p&gt;从这里可以看到 ntp 服务正在运行。使用 grep 命令你可以查看 http 或 smtp 或其它任何你想查看的服务。&lt;/p&gt;
-
-&lt;/div&gt;
-</description>
-        <pubDate>Wed, 29 Aug 2018 11:20:01 +0800</pubDate>
-        <link>http://localhost:4000/2018/08/29/netstat-introdution/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/08/29/netstat-introdution/</guid>
-        
-        <category>Netstat</category>
-        
-        
-        <category>Linux</category>
-        
-      </item>
-    
-      <item>
-        <title>Git、Bitbucket及Github 学习</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#一认识-gitbitbucket及github&quot; id=&quot;markdown-toc-一认识-gitbitbucket及github&quot;&gt;一、认识 Git、Bitbucket及Github&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#二git入门&quot; id=&quot;markdown-toc-二git入门&quot;&gt;二、Git入门&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#1git-安装&quot; id=&quot;markdown-toc-1git-安装&quot;&gt;1、Git 安装&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#2什么是-git-仓库repo&quot; id=&quot;markdown-toc-2什么是-git-仓库repo&quot;&gt;2、什么是 Git 仓库(repo)&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#3创建仓库&quot; id=&quot;markdown-toc-3创建仓库&quot;&gt;3、创建仓库&lt;/a&gt;        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#1仓库初始化-git-init&quot; id=&quot;markdown-toc-1仓库初始化-git-init&quot;&gt;（1）仓库初始化 git init&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#2克隆已有的仓库到本地-git-clone&quot; id=&quot;markdown-toc-2克隆已有的仓库到本地-git-clone&quot;&gt;（2）克隆已有的仓库到本地 git clone&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#4保存更改到仓库-git-add-和-git-commit&quot; id=&quot;markdown-toc-4保存更改到仓库-git-add-和-git-commit&quot;&gt;4、保存更改到仓库 git add 和 git commit&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#5本地仓库与远程仓库之间的协作&quot; id=&quot;markdown-toc-5本地仓库与远程仓库之间的协作&quot;&gt;5、本地仓库与远程仓库之间的协作&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#6示例&quot; id=&quot;markdown-toc-6示例&quot;&gt;6、示例&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#三bitbucket&quot; id=&quot;markdown-toc-三bitbucket&quot;&gt;三、Bitbucket&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#一-bitbucket基本操作&quot; id=&quot;markdown-toc-一-bitbucket基本操作&quot;&gt;（一） BitBucket基本操作&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#二初识分支&quot; id=&quot;markdown-toc-二初识分支&quot;&gt;（二）初识分支&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#三-学会如何与队友进行协作&quot; id=&quot;markdown-toc-三-学会如何与队友进行协作&quot;&gt;（三） 学会如何与队友进行协作&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#四深入的了解分支&quot; id=&quot;markdown-toc-四深入的了解分支&quot;&gt;（四）深入的了解分支&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#四github&quot; id=&quot;markdown-toc-四github&quot;&gt;四、Github&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;一认识-gitbitbucket及github&quot;&gt;一、认识 Git、Bitbucket及Github&lt;/h3&gt;
-&lt;h3 id=&quot;二git入门&quot;&gt;二、Git入门&lt;/h3&gt;
-&lt;h4 id=&quot;1git-安装&quot;&gt;1、Git 安装&lt;/h4&gt;
-&lt;p&gt;Ubuntu中:&lt;br /&gt;
-$ sudo apt install git-all&lt;/p&gt;
-&lt;h4 id=&quot;2什么是-git-仓库repo&quot;&gt;2、什么是 Git 仓库(repo)&lt;/h4&gt;
-&lt;p&gt;项目的一个虚拟存储，允许你保存你代码的版本，你可以在你需要的时候访问它，简而言之，就是进行代码版本控制的空间&lt;/p&gt;
-&lt;h4 id=&quot;3创建仓库&quot;&gt;3、创建仓库&lt;/h4&gt;
-&lt;h5 id=&quot;1仓库初始化-git-init&quot;&gt;（1）仓库初始化 git init&lt;/h5&gt;
-&lt;p&gt;只需要在创建仓库的时候使用一次该命令，执行完该命令后，在当前文件夹下多出一个 .git文件，并且创建出一个主分支。&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;方法一：进入已创建好的仓库根目录下，执行  
-git init
-方法二：  
-git init &amp;lt;project directory&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h5 id=&quot;2克隆已有的仓库到本地-git-clone&quot;&gt;（2）克隆已有的仓库到本地 git clone&lt;/h5&gt;
-&lt;p&gt;git clone 会把远程仓库最新版主分支的仓库文件下载到本地文件夹中，该文件夹以项目的名称命名&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone &amp;lt;repo url&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h4 id=&quot;4保存更改到仓库-git-add-和-git-commit&quot;&gt;4、保存更改到仓库 git add 和 git commit&lt;/h4&gt;
-&lt;p&gt;上述操作已经完成仓库的创建，现在就可以提交它的文件版本更改&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;进入仓库更目录。&lt;/li&gt;
-  &lt;li&gt;创建一个 CommitTest.txt 文件，书写内容。&lt;/li&gt;
-  &lt;li&gt;使用 git add 将 CommitTest.txt 添加到 Staging area。（可使用 git add –all 命令将所有的已更改的文件添加到 repo,并且更新repo的工作树）&lt;/li&gt;
-  &lt;li&gt;使用git commit 创建一个新的提交， -m 添加提交描述。（现在已将CommitTest.txt文件添加到 history，追踪该文件未来的更新）&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h4 id=&quot;5本地仓库与远程仓库之间的协作&quot;&gt;5、本地仓库与远程仓库之间的协作&lt;/h4&gt;
-&lt;p&gt;（1）如果你的仓库是使用  git clone 从远程仓库下载，git clone 已自动配置你的仓库与你克隆的URL所在远程仓库相关联，这就意味着如果你对文件做出更改并且需要提交它到远程仓库，可使用  git push 将这些更改推送到远程仓库。&lt;br /&gt;
-（2）如果你使用的 git init 创建了一个全新的仓库，你现在是没有远程仓库的。一个较为普遍的做法是去托管 git 服务（如 bitbucket,github）的地方，创建一个远程仓库，并使用 git remote 将相关联，再推送修改。&lt;br /&gt;
-（3）为了能够配置远程仓库的URL，你可能需要设置全局git配置，如username,email。git的配置选项保存在三个单独的文件中：&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;Local 本地&lt;/li&gt;
-  &lt;li&gt;Global 用户（全局）&lt;/li&gt;
-  &lt;li&gt;System 系统
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git config --global user.name
-git config --local user.email
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h4 id=&quot;6示例&quot;&gt;6、示例&lt;/h4&gt;
-&lt;p&gt;这个示例实现了在本地创建一个仓库，添加并修改一个CommitTest.txt文件，并且将修改提交到一个在 bitbucket上的远程仓库（第二节会介绍）&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-nwpu@nwpu-Lenovo-Product:~/test$ mkdir TestGit
-nwpu@nwpu-Lenovo-Product:~/test$ cd TestGit
-nwpu@nwpu-Lenovo-Product:~/test/TestGit$ git init
-Initialized empty Git repository in /home/nwpu/test/TestGit/.git/
-nwpu@nwpu-Lenovo-Product:~/test/TestGit$ ll
-total 12
-drwxrwxr-x 3 nwpu nwpu 4096 Sep  3 10:46 ./
-drwxrwxr-x 3 nwpu nwpu 4096 Sep  3 10:46 ../
-drwxrwxr-x 7 nwpu nwpu 4096 Sep  3 10:46 .git/
-#此时便初始化一个仓库成功，可以看见仓库文件根目录下有一个 .git文件
-
-nwpu@nwpu-Lenovo-Product:~/test/TestGit$ touch CommitTest.txt
-nwpu@nwpu-Lenovo-Product:~/test/TestGit$ echo &quot;Hello World&quot; &amp;gt;&amp;gt; CommitTest.txt 
-nwpu@nwpu-Lenovo-Product:~/test/TestGit$ git add --all
-nwpu@nwpu-Lenovo-Product:~/test/TestGit$ git status
-On branch master
-
-Initial commit
-
-Changes to be committed:
-  (use &quot;git rm --cached &amp;lt;file&amp;gt;...&quot; to unstage)
-
-	new file:   CommitTest.txt
-
-#可以看见此时 CommitTest.txt已经被添加到 statging area
-nwpu@nwpu-Lenovo-Product:~/test/TestGit$ git commit -m &quot;my intial commit!&quot;
-[master (root-commit) fb15110] my intial commit!
- 1 file changed, 1 insertion(+)
- create mode 100644 CommitTest.txt
-
-nwpu@nwpu-Lenovo-Product:~/test/TestGit$ git status
-On branch master
-nothing to commit, working directory clean
-#此时查看已经被提交
-nwpu@nwpu-Lenovo-Product:~/test/TestGit$ git log
-commit fb15110fa0491c4256c338b0d6742423a9f27b6d
-Author: wq &amp;lt;rjgc_wq@163.com&amp;gt;
-Date:   Mon Sep 3 11:03:25 2018 +0800
-
-    my intial commit!
-#使用 git log 可以看到本次提交已在历史记录中
-
-#与远程仓库相关联，并且进行提交
-nwpu@nwpu-Lenovo-Product:~/test/TestGit$ git remote add origin https://KeeWong@bitbucket.org/KeeWong/testgit.git
-nwpu@nwpu-Lenovo-Product:~/test/TestGit$ git push -u origin master
-Password for 'https://KeeWong@bitbucket.org': 
-Counting objects: 3, done.
-Writing objects: 100% (3/3), 225 bytes | 0 bytes/s, done.
-Total 3 (delta 0), reused 0 (delta 0)
-To https://KeeWong@bitbucket.org/KeeWong/testgit.git
- * [new branch]      master -&amp;gt; master
-Branch master set up to track remote branch master from origin.
-
-如果提交的时候报 please tell me who you are 的错误，需要进行config配置
-git config user.name &quot;someone&quot;
-git config user.email &quot;someone@someplace.com&quot;
-再重新提交
-
-
-查看bitbucket的仓库，发现该文件已经提交
-
-
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;三bitbucket&quot;&gt;三、Bitbucket&lt;/h3&gt;
-&lt;h4 id=&quot;一-bitbucket基本操作&quot;&gt;（一） BitBucket基本操作&lt;/h4&gt;
-&lt;p&gt;1、发布本地历史可以通过推送分支到其他仓库，也可拉取别人的分支到本地仓库，看看其做了哪些工作&lt;br /&gt;
-在bitbucket 创建新的文件&lt;br /&gt;
-（1）选择分支&lt;br /&gt;
-（2）点击 source&lt;br /&gt;
-（3）add file&lt;br /&gt;
-（4）点击commit 进行提交&lt;br /&gt;
-（5）点击左侧 commits查看自己所有的提交&lt;br /&gt;
-（6）拉取改变到本地仓库，与git push 正好相反，使用 git pull –all&lt;/p&gt;
-
-&lt;h4 id=&quot;二初识分支&quot;&gt;（二）初识分支&lt;/h4&gt;
-
-&lt;p&gt;使用 git 分支来合并文件&lt;br /&gt;
-分支是团队合作最有效的工具 &lt;br /&gt;
-你可以从自己的分支机构处理自己的项目，从bitbucket上获取更新，然后准备就绪后将所有的工作合并到主分支 &lt;br /&gt;
-在你计划做一些修改而不准备提交的地方创建一个分支，当你准备将这些更改和计划让别人知道时，你可以提交这些更改到bitbucket库，然后删除不再需要的分支&lt;/p&gt;
-
-&lt;p&gt;比较重要的理解是，分支仅仅是提交的指针，当你创建一个分支的时候，git只是需要创建一个指针，不需要创建一系列的文件和文件夹&lt;br /&gt;
-分支工作原理&lt;br /&gt;
-创建分之前&lt;br /&gt;
-创建分支&lt;br /&gt;
-切换到新的分支&lt;br /&gt;
-在新建的分支上进行工作&lt;br /&gt;
-提交更改&lt;br /&gt;
-合并分支&lt;/p&gt;
-
-&lt;p&gt;提交这些更改到BitBucket上&lt;/p&gt;
-&lt;h4 id=&quot;三-学会如何与队友进行协作&quot;&gt;（三） 学会如何与队友进行协作&lt;/h4&gt;
-&lt;p&gt;当你在其他用户的公共 BitBucket仓库工作时，通常你只有读而无写的权限，那么我们就引入了forKing的概念，它是如何工作的呢？&lt;br /&gt;
-（1） 将仓库分叉以复制到你的账户&lt;br /&gt;
-（2）从自己的账户克隆分叉的仓库到自己的操作系统&lt;br /&gt;
-（3）在本地仓库进行更改&lt;br /&gt;
-（4）推送这些改变到你的BitBucket上的分叉存储库&lt;br /&gt;
-（5）从您分叉的原始存储库创建拉取请求，以添加你所做的更改&lt;br /&gt;
-（6）等待仓库的拥有着接受或拒绝你的请求&lt;br /&gt;
-注意：&lt;br /&gt;
-如果仓库的owner接受你的请求，BitBucket会合并你的代码更改到原始仓库。但需要注意的是即使仓库所有者给了你公共仓库的写权限，也建议你使用佛fork和pull请求&lt;br /&gt;
-示例：&lt;br /&gt;
-该列子中你将fork一个公共仓库，它属于tutorials,并且对其做出更改：&lt;br /&gt;
-步骤如下：&lt;br /&gt;
-（1）在浏览器打开 &lt;a href=&quot;tutorials/tutorials.git.bitbucket.org&quot;&gt;tutorials/tutorials.git.bitbucket.org&lt;/a&gt; &lt;br /&gt;
-（2）打开该仓库，点击 + ，点击 fork this repository&lt;br /&gt;
-（3）更改其名称（myteamquoes），点击  fork repository&lt;br /&gt;
-（4）clone 你fork的仓库到本地，并且对其做出一些更改，将更改推送到BitBucket上&lt;br /&gt;
-如下：&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; 在forked repo中 -&amp;gt; + -&amp;gt;clone,复制其 URL
- git clone URL 
- 更改 editme.html 文件，这个文件中主要是写了一些励志名言
- git add editme.html
- git commit -m &quot;make a change!!&quot;
- git push origin master
-这样便推送自己的更改到远程仓库上去了
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;（5）请求把自己的更改添加到原始仓库&lt;br /&gt;
-！！！care，可能出现这样一种情况，在你clone repo到本地 进行更改的时候，已有队友向该才哭中提交过更改，你的仓库就不是最新的版本了，这种情况下你需要检查并且决定是否需要相应的调整你的fork,按照以下步骤进行：&lt;br /&gt;
- a. 登录 BitBucket 并且进入 myteamquotes(forked仓库)&lt;br /&gt;
- b. 在最左侧点击 + -&amp;gt; compare branches or tags-&amp;gt;compare
- c. 点击 diff 可以查看做了哪些改变
- d.创建一个 pull 请求 点击左侧 pull requests-&amp;gt; create a pull requests ,填写相应的信息然后确认
- 注意：&lt;br /&gt;
- pull之后你无法删除它，如果你删除该 fork 接收着吧只能拒绝该请求。&lt;/p&gt;
-
-&lt;h4 id=&quot;四深入的了解分支&quot;&gt;（四）深入的了解分支&lt;/h4&gt;
-&lt;p&gt;前面的章节我们已经了解到了分支的工作流程及其原理，接下来我们将更深入的了解分支，主要包括以下的内容：&lt;br /&gt;
-   （1）创建一个分支并且推送到 remote
-   （2）拉取分支到本地并且切换到该分支 git fetch &amp;amp;&amp;amp; check out test-2
-   （3）查看分支 git branch
-   （4）合并分支  git merge master test-2，*** 非常重要的是  若你想要合并 master 到test-2,必须check out 到test-2
-   （5）删除分支并且拉取主分支到本地工作分支 git branch -d test-1&lt;/p&gt;
-
-&lt;p&gt;为何要删除分支
-	为了保持本地的环境干净&lt;/p&gt;
-
-&lt;p&gt;为何pull 主分支，并且把它merge到 test-2
-  在您工作的过程中，您的另一个团队成员可能也在工作，最好是不是将更改提取到您的工作分支，以防止拉取请求中合并冲突&lt;/p&gt;
-
-&lt;h3 id=&quot;四github&quot;&gt;四、Github&lt;/h3&gt;
-</description>
-        <pubDate>Sat, 11 Aug 2018 18:37:01 +0800</pubDate>
-        <link>http://localhost:4000/2018/08/11/git-use/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/08/11/git-use/</guid>
-        
-        <category>Git</category>
-        
-        
-        <category>Git</category>
         
       </item>
     
