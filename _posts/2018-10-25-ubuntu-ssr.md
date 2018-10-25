@@ -86,8 +86,9 @@ INFO: loading config from /home/nwpu/shadowsocks.json
 下载安装参考[https://github.com/FelisCatus/SwitchyOmega/releases](https://github.com/FelisCatus/SwitchyOmega/releases)   
 
 #### 1、添加代理服务器
-点击谷歌右上角  Proxy SwitchyOmega（假设你已经装好）->options->New profile
-<img src="{{ '/styles/images/ssr/002.png' | prepend: site.baseurl }}" alt="002" width="500" />
+点击谷歌右上角  Proxy SwitchyOmega（假设你已经装好）->options->New profile  
+如图：  
+<img src="{{ '/styles/images/ssr/02.png' | prepend: site.baseurl }}" alt="02"  />
 
 #### 2、设置自动切换模式
 Switch rules 切换规则，是指满足这种情景的情况下 使用后面选择的代理服务器上网，可以通过 Rule List Config进行批量导入。  
@@ -95,6 +96,6 @@ Switch rules 切换规则，是指满足这种情景的情况下 使用后面选
 2、Rule List URL :[https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt](https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt)   
 3、点击 Download Profile Now  
 如图：  
-<img src="{{ '/styles/images/ssr/003.png' | prepend: site.baseurl }}" alt="002" width="500" />
+<img src="{{ '/styles/images/ssr/03.png' | prepend: site.baseurl }}" alt="03"  />
 
 
